@@ -4,11 +4,13 @@ public class Character {
     private int hp; // to check
     private boolean isAlive = true;
 
-    public Character() {}
-
     public Character(String name, int hp) {
         this.name = name;
         this.hp = hp;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -27,20 +29,22 @@ public class Character {
         this.hp = hp;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public boolean isAlive() {
+    public boolean getIsAlive() {
         return isAlive;
     }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
+    public void setIsAlive(boolean isAlive) {
+        isAlive = isAlive;
+    }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                '}';
     }
 
 }
