@@ -1,4 +1,3 @@
 interface Attacker {
-    void attack(Character c);
-
+    void attack(Character character);
 }
