@@ -4,15 +4,11 @@ public class Warrior extends Character implements Attacker {
     private int stamina; // to check random 10-50
     private int strength; // random 1-10
 
-    public Warrior(int stamina, int strength) {
-        this.stamina = stamina;
-        this.strength = strength;
-    }
 
     public Warrior(String name, int hp, int stamina, int strength) {
         super(name, hp);
-        this.stamina = stamina;
-        this.strength = strength;
+       setStamina(stamina);
+       setStrength(strength);
     }
 
     public int getStamina() {
