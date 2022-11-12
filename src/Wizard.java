@@ -2,13 +2,21 @@ import java.util.Random;
 
 public class Wizard extends Character implements Attacker {
 
-    private int mana; //Random entre 10 y 50
-    private int intelligence; //Random entre 1 y 50
+    private int mana;
+    private int intelligence;
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);
         setMana(mana);
         setIntelligence(intelligence);
+    }
+
+    public Wizard(String name, int hp) {
+        super(name, hp);
+        //Random entre 10 y 50
+        setMana(new Random().nextInt(50-10) + 10);
+        //Random entre 1 y 50
+        setIntelligence(new Random().nextInt(50-1) + 1);
     }
 
     public int getMana() {
