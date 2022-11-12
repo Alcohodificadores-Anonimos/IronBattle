@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Wizard extends Character implements Attacker {
 
-    private int mana;
-    private int intelligence;
+    private int mana = (int) (Math.random()*50+10);
+    private int intelligence = (int) (Math.random()*50+1);
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);

@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Warrior extends Character implements Attacker {
-    private int stamina; // to check random 10-50
-    private int strength; // random 1-10
+    private int stamina = (int) (Math.random()*50+10);
+    private int strength = (int) (Math.random()*10+1);
 
 
     public Warrior(String name, int hp, int stamina, int strength) {
