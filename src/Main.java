@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
+    private static int idCounter = 0;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -103,6 +104,10 @@ public class Main {
                     System.out.println("ELIGE UNA OPCIÓN VÁLIDA");
             }
         }
-
     }
+
+    protected static String getIdCounter() {
+        return Integer.toString(idCounter++);
+    }
+
 }
