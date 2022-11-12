@@ -1,5 +1,6 @@
-public class Character {
+public abstract class Character implements Attacker{
     private String id = Main.getIdCounter();
+
     /*
     Raul:
     Incrementarlo cada vez que se cree un character, creo que debe ser statica (o no) y se tiene

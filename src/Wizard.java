@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Wizard extends Character implements Attacker {
+public class Wizard extends Character{
 
     private int mana = (int) (Math.random()*50+10);
     private int intelligence = (int) (Math.random()*50+1);
@@ -103,8 +103,5 @@ public class Wizard extends Character implements Attacker {
 
         System.out.println("---TURNO ACABADO---");
         System.out.println("Daño inflinjido: " + dmg);
-        System.out.println("Personaje atacante: " + this.toString());
-        System.out.println("Personaje atacado: " + character.toString());
-
     }
 }
