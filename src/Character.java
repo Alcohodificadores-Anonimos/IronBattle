@@ -1,5 +1,10 @@
 public class Character {
-    private String id;
+    private String id; //todo
+    /*
+    Raul:
+    Incrementarlo cada vez que se cree un character, creo que debe ser statica (o no) y se tiene
+    que autoincrementar en el constructor
+    */
     private String name;
     private int hp; // to check
     private boolean isAlive = true;
