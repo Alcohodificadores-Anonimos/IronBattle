@@ -41,7 +41,6 @@ public class Wizard extends Character{
                 "id='" + getId() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", hp=" + getHp() +
-                ", isAlive=" + getIsAlive() +
                 ", mana=" + getMana() +
                 ", intelligence=" + getIntelligence() +
                 '}';
@@ -74,7 +73,7 @@ public class Wizard extends Character{
                 //The damage of a Fireball is equal to his intelligence and every Fireball will decrease their mana by 5 points
                 dmg = intelligence;
                 setMana(getMana() - 5);
-
+                System.out.println(this.getName() + " ATACA CON FIREBALL INFLINGIENDO " + dmg + " DE DAÑO");
                 break;
 
             case 1:
@@ -82,15 +81,14 @@ public class Wizard extends Character{
                 //The damage of a staff hit is equal to 2. Every staff hit will recover his mana by 1.
                 dmg = 2;
                 setMana(getMana() + 1);
-
+                System.out.println(this.getName() + " ATACA CON STAFF HIT INFLINGIENDO " + dmg + " DE DAÑO");
                 break;
 
             default:
 
                 //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
                 setMana(random);
-
-                System.out.println("Mana insuficiente, +2 de mana");
+                System.out.println(this.getName() + ". NO PUEDE ATACAR NO TIENE MANA. MANA +2");
 
         }
 
@@ -100,8 +98,5 @@ public class Wizard extends Character{
         character.setHp(character.getHp() - dmg);
 
         //Si al final no ha tenido mana, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
-
-        System.out.println("---TURNO ACABADO---");
-        System.out.println("Daño inflinjido: " + dmg);
     }
 }

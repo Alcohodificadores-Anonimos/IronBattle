@@ -1,5 +1,7 @@
 public abstract class Character implements Attacker{
-    private String id = Main.getIdCounter();
+
+    private String id;
+    private static int idCounter = 1;
 
     /*
     Raul:
@@ -11,6 +13,7 @@ public abstract class Character implements Attacker{
     private boolean isAlive = true;
 
     public Character(String name, int hp) {
+        this.id = Integer.toString(idCounter++);
         this.name = name;
         this.hp = hp;
     }

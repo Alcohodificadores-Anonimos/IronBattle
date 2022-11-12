@@ -21,8 +21,6 @@ public class Main {
         int manaWizard;
         int intelligenceWizard;
         int contadorPlayers = 0;
-        boolean warriorIsCrated = false;
-        boolean wizardIsCreated = false;
         ArrayList<Character> players = new ArrayList<>();
 
         System.out.println("BIENVENIDO A IRONBATTLE");
@@ -51,13 +49,11 @@ public class Main {
                             staminaWarrior = scanner.nextInt();
                             System.out.println("INTRODUCE LA FUERZA DEL WARRIOR");
                             strengthWarrior = scanner.nextInt();
-                            Warrior warrior = new Warrior(nameWarrior, hpWarrior, staminaWarrior, strengthWarrior);
-                            players.add(warrior);
-                            contadorPlayers++;
-                            System.out.println("PERSONAJE " + contadorPlayers + " CREADO");
-                            System.out.println("WARRIOR CREADO");
-                            warriorIsCrated = true;
-                            System.out.println(warrior);
+                            Warrior warrior = new Warrior(nameWarrior, hpWarrior,staminaWarrior,strengthWarrior);
+                             players.add(warrior);
+                             contadorPlayers++;
+                             System.out.println("PERSONAJE " + contadorPlayers + ": WARRIOR CREADO");
+                             System.out.println();
                             break;
                         case 2:
                             System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
@@ -68,12 +64,10 @@ public class Main {
                             manaWizard = scanner.nextInt();
                             System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD");
                             intelligenceWizard = scanner.nextInt();
-                            Wizard wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
+                            Wizard wizard = new Wizard(nameWizard, hpWizard,manaWizard,intelligenceWizard);
                             players.add(wizard);
                             contadorPlayers++;
-                            System.out.println("PERSONAJE " + contadorPlayers + " CREADO");
-                            System.out.println("WIZARD CREADO");
-                            wizardIsCreated = true;
+                            System.out.println("PERSONAJE " + contadorPlayers + ": WIZARD CREADO");
                             System.out.println(wizard);
                             break;
                         default:
@@ -84,7 +78,8 @@ public class Main {
                 case 2:
 
                     if (contadorPlayers>=2){
-                        System.out.println("EMPEZANDO EL COMBATE");
+                        System.out.println("-------------EMPEZANDO EL COMBATE----------------");
+                        System.out.println();
                         Utilities.combat(players);
                         break;
                     }else{
@@ -97,8 +92,6 @@ public class Main {
                     break;
                 case 4:
                     //METODO PARA IMPORTAR JUGADORES
-                    warriorIsCrated = true;
-                    wizardIsCreated = true;
                     System.out.println("PERSONAJES IMPORTADOS");
                     break;
                 case 5:
