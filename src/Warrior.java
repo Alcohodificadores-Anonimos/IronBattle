@@ -26,7 +26,17 @@ public class Warrior extends Character implements Attacker {
     public void setStrength(int strength) {
         this.strength = strength;
     }
-
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", hp=" + getHp() +
+                ", isAlive=" + getIsAlive() +
+                ", stamina=" + getStamina() +
+                ", strength=" + getStrength() +
+                '}';
+    }
     @java.lang.Override
     public void attack(Character enemy) {
         Random random = new Random();
