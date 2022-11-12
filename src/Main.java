@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -18,24 +19,26 @@ public class Main {
         int hpWizard;
         int manaWizard;
         int intelligenceWizard;
+        int contadorPlayers = 0;
         boolean warriorIsCrated = false;
         boolean wizardIsCreated = false;
+        ArrayList<Character> players = new ArrayList<>();
 
         System.out.println("BIENVENIDO A IRONBATTLE");
-        System.out.println("=========MENU===========");
-        System.out.println("SELECIONA 1 PARA CREAR LOS PERSONAJES");
-        System.out.println("SELECIONA 2 PARA ENTRAR A LA BATALLA");
+
         while (menu) {
+            System.out.println("=========MENU===========");
+            System.out.println("SELECIONA 1 PARA CREAR LOS PERSONAJES");
+            System.out.println("SELECIONA 2 PARA ENTRAR A LA BATALLA");
+            System.out.println("SELECCIONA 3 PARA VER EL LOG DEL COMBATE");
+            System.out.println("SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV");
+            System.out.println("SELECCIONA 5 PARA COMBATE AUTOMÁTICO");
+            System.out.println("SELECCIONA 6 PARA SALIR DEL JUEGO");
             options = scanner.nextInt();
             switch (options) {
                 case 1:
                     System.out.println("SELECCIONA 1 PARA CREAR UN WARRIOR");
                     System.out.println("SELECCIONA 2 PARA CREAR UN WIZARD");
-                    System.out.println("SELECCIONA 3 PARA VER EL LOG DEL COMBATE");
-                    System.out.println("SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV");
-                    System.out.println("SELECCIONA 5 PARA COMBATE AUTOMÁTICO");
-                    System.out.println("SELECCIONA 6 PARA SALIR DEL JUEGO");
-
                     options2 = scanner.nextInt();
                     switch (options2) {
                         case 1:
@@ -48,6 +51,9 @@ public class Main {
                             System.out.println("INTRODUCE LA FUERZA DEL WARRIOR");
                             strengthWarrior = scanner.nextInt();
                             Warrior warrior = new Warrior(nameWarrior, hpWarrior, staminaWarrior, strengthWarrior);
+                            players.add(warrior);
+                            contadorPlayers++;
+                            System.out.println("PERSONAJE " + contadorPlayers + " CREADO");
                             System.out.println("WARRIOR CREADO");
                             warriorIsCrated = true;
                             System.out.println(warrior);
@@ -62,6 +68,9 @@ public class Main {
                             System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD");
                             intelligenceWizard = scanner.nextInt();
                             Wizard wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
+                            players.add(wizard);
+                            contadorPlayers++;
+                            System.out.println("PERSONAJE " + contadorPlayers + " CREADO");
                             System.out.println("WIZARD CREADO");
                             wizardIsCreated = true;
                             System.out.println(wizard);
@@ -73,9 +82,9 @@ public class Main {
                     break;
                 case 2:
 
-                    if (warriorIsCrated && wizardIsCreated){
+                    if (contadorPlayers>=2){
                         System.out.println("EMPEZANDO EL COMBATE");
-                        //METODOS DE COMBATE
+                        Utilities.combat(players);
                         break;
                     }else{
                         System.out.println("CREA LOS PERSONAJES ANTES");
@@ -105,4 +114,5 @@ public class Main {
         }
 
     }
+
 }

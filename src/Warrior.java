@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Warrior extends Character implements Attacker {
+public class Warrior extends Character{
     private int stamina = (int) (Math.random()*50+10);
     private int strength = (int) (Math.random()*10+1);
 
@@ -37,7 +37,7 @@ public class Warrior extends Character implements Attacker {
                 ", strength=" + getStrength() +
                 '}';
     }
-    @java.lang.Override
+    @Override
     public void attack(Character enemy) {
         Random random = new Random();
         int attackType;

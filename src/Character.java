@@ -1,4 +1,4 @@
-public class Character {
+public abstract class Character implements Attacker{
     private String id; //todo
     /*
     Raul:
