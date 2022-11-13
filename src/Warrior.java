@@ -16,6 +16,7 @@ public class Warrior extends Character{
         setStrength(new Random().nextInt(10-1) + 1);
     }
 
+
     public int getStamina() {
         return stamina;
     }
@@ -92,6 +93,6 @@ public class Warrior extends Character{
 
         //Si al final no ha tenido stamina, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
 
-       
+
     }
 }

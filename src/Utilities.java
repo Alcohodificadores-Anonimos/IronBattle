@@ -12,7 +12,7 @@ public class Utilities {
 
         int turnos = 1;
 
-        while(players.get(0).getHp()>0 || players.get(1).getHp()>0){
+        while(players.get(0).getHp()>0 && players.get(1).getHp()>0){
             System.out.println("   TURNO " + turnos);
             turnos++;
             players.get(0).attack(players.get(1));
@@ -21,6 +21,14 @@ public class Utilities {
             System.out.println("Player 1: " + players.get(0).toString());
             System.out.println("Player 2: " + players.get(1).toString());
             System.out.println("----------------------------------------");
+
+            if (players.get(0).getHp() <= 0 && players.get(1).getHp() <= 0){
+                System.out.println( "DOBLE K.O., HA SIDO EMPATE.");
+            } else if (players.get(1).getHp() <= 0){
+                System.out.println(" GANADOR: Player 1: " + players.get(0).toString());
+            } else if (players.get(0).getHp() <= 0){
+                System.out.println(" GANADOR: Player 2: " + players.get(1).toString());
+            }
         }
     }
 
@@ -32,10 +40,10 @@ public class Utilities {
         for (int i = 0; i < 2; i++) {
             int rand = (int) (Math.random() * 2) + 1;
             if (rand == 1 ){
-                Warrior warrior = new Warrior("Player " + (i+1),100);
+                Warrior warrior = new Warrior("Player " + (i+1),new Random().nextInt(200-100) + 100);
                 players.add(warrior);
             }else if(rand == 2){
-                Wizard wizard = new Wizard("Player " + (i+1), 100);
+                Wizard wizard = new Wizard("Player " + (i+1),new Random().nextInt(100-50) + 50 );
                 players.add(wizard);
             }
         }
