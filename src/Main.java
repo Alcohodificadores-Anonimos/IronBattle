@@ -43,7 +43,7 @@ public class Main {
                     options2 = scanner.nextInt();
                     switch (options2) {
                         case 1:
-                            if (alreadyPlayer1 == true) {
+                            if (alreadyPlayer1) {
                                 players.clear();
                                 alreadyPlayer1=false;
                                 contadorPlayers=0;
@@ -62,7 +62,7 @@ public class Main {
                                 System.out.println(warrior);
                                 break;
 
-                            } else if(alreadyPlayer1==false){
+                            } else if(!alreadyPlayer1){
                                 System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
                                 nameWarrior = scanner.next();
                                 System.out.println("INTRODUCE LA VIDA DEL WARRIOR");
@@ -80,7 +80,7 @@ public class Main {
                             }
 
                                 case 2:
-                                    if (alreadyPlayer1 == true) {
+                                    if (alreadyPlayer1) {
                                         players.clear();
                                         alreadyPlayer1 = false;
                                         contadorPlayers=0;
@@ -98,7 +98,7 @@ public class Main {
                                         System.out.println("PERSONAJE " + contadorPlayers + ": WIZARD CREADO");
                                         System.out.println(wizard);
                                         break;
-                                    } else if (alreadyPlayer1==false){
+                                    } else if (!alreadyPlayer1){
                                         System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
                                         nameWizard = scanner.next();
                                         System.out.println("INTRODUCE LA VIDA DEL WIZARD");
@@ -133,6 +133,7 @@ public class Main {
                         case 3:
                             //METODO PARA VER EL LOG DEL COMBATE
                             System.out.println("LOG DEL COMBATE");
+                            //EL COMBATE NO GUARDA LOG, MÉTODO A MODIFICAR
                             break;
                         case 4:
                             System.out.println("PERSONAJES IMPORTADOS");
@@ -155,4 +156,5 @@ public class Main {
                     }
             }
         }
+
     }

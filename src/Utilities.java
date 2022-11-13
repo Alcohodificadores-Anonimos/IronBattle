@@ -12,6 +12,8 @@ public class Utilities {
 
         int turnos = 1;
 
+        // El combate se ejecuta por cada dos players, si el array es impar, no ejecuta
+        // combate para el último player
         while(players.get(0).getHp()>0 && players.get(1).getHp()>0){
             System.out.println("   TURNO " + turnos);
             turnos++;
@@ -33,7 +35,6 @@ public class Utilities {
     }
 
     public static void automaticCombat(){
-
 
         ArrayList<Character> players = new ArrayList<>();
 

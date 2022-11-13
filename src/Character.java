@@ -1,19 +1,13 @@
 public abstract class Character implements Attacker{
 
+    private static int idCounter;
     private String id;
-    private static int idCounter = 1;
-
-    /*
-    Raul:
-    Incrementarlo cada vez que se cree un character, creo que debe ser statica (o no) y se tiene
-    que autoincrementar en el constructor
-    */
     private String name;
     private int hp; // to check
     private boolean isAlive = true;
 
     public Character(String name, int hp) {
-        this.id = Integer.toString(idCounter++);
+        this.id = getIdCounterToString();
         this.name = name;
         this.hp = hp;
     }
@@ -54,6 +48,10 @@ public abstract class Character implements Attacker{
                 ", hp=" + hp +
                 ", isAlive=" + isAlive +
                 '}';
+    }
+
+    public String getIdCounterToString() {
+        return Integer.toString(idCounter++);
     }
 
 }
