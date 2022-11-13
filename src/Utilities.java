@@ -1,6 +1,9 @@
-import javax.xml.stream.events.Characters;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
+
 
 public class Utilities {
 
@@ -18,6 +21,54 @@ public class Utilities {
             System.out.println("Player 2: " + players.get(1).toString());
             System.out.println("----------------------------------------");
         }
+    }
+
+    public static ArrayList<Character> importCSV(ArrayList<Character> characters){
+
+        characters.clear();
+
+        BufferedReader bufferedReader = null;
+        try {
+            // Abrir el .csv en buffer de lectura
+            bufferedReader = new BufferedReader(new FileReader("Players.csv"));
+
+            // Leer una linea del archivo
+            String linea = bufferedReader.readLine();
+
+            while (linea != null) {
+                // Sepapar la linea leída con el separador
+                String[] campos = linea.split(";");
+                if(campos[0].equalsIgnoreCase("warrior")){
+                    Warrior warrior = new Warrior(campos[1],Integer.parseInt(campos[2]),Integer.parseInt(campos[3]),Integer.parseInt(campos[4]));
+                    characters.add(warrior);
+                }else if(campos[0].equalsIgnoreCase("wizard")){
+                   Wizard wizard = new Wizard(campos[1],Integer.parseInt(campos[2]),Integer.parseInt(campos[3]),Integer.parseInt(campos[4]));
+                   characters.add(wizard);
+                }else{
+                    System.out.println("Los tipos deben ser WARRIOR O WIZARD");
+                }
+
+
+                System.out.println(Arrays.toString(campos));
+
+                // Volver a leer otra línea del fichero
+                linea = bufferedReader.readLine();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Cierro el buffer de lectura
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return characters;
     }
 
 }

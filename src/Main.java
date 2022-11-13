@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    private static int idCounter = 0;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,6 +23,7 @@ public class Main {
         int intelligenceWizard;
         int contadorPlayers = 0;
         ArrayList<Character> players = new ArrayList<>();
+
 
         System.out.println("BIENVENIDO A IRONBATTLE");
 
@@ -53,7 +55,7 @@ public class Main {
                              players.add(warrior);
                              contadorPlayers++;
                              System.out.println("PERSONAJE " + contadorPlayers + ": WARRIOR CREADO");
-                             System.out.println();
+                             System.out.println(warrior);
                             break;
                         case 2:
                             System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
@@ -93,6 +95,9 @@ public class Main {
                 case 4:
                     //METODO PARA IMPORTAR JUGADORES
                     System.out.println("PERSONAJES IMPORTADOS");
+                    players = Utilities.importCSV(players);
+                    contadorPlayers= 2;
+                    System.out.println(players);
                     break;
                 case 5:
                     //METODO COMBATE AUTOMATICO
@@ -107,9 +112,4 @@ public class Main {
             }
         }
     }
-
-    protected static String getIdCounter() {
-        return Integer.toString(idCounter++);
-    }
-
 }
