@@ -93,7 +93,6 @@ public class Main {
                     System.out.println("LOG DEL COMBATE");
                     break;
                 case 4:
-                    //METODO PARA IMPORTAR JUGADORES
                     System.out.println("PERSONAJES IMPORTADOS");
                     players = Utilities.importCSV(players);
                     contadorPlayers= 2;
@@ -102,6 +101,7 @@ public class Main {
                 case 5:
                     //METODO COMBATE AUTOMATICO
                     System.out.println("EMPIEZA COMBATE AUTOMÁTICO");
+                    Utilities.automaticCombat();
                     break;
                 case 6:
                     System.out.println("SALIENDO DEL JUEGO...");

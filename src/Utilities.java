@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 
 public class Utilities {
@@ -21,6 +22,26 @@ public class Utilities {
             System.out.println("Player 2: " + players.get(1).toString());
             System.out.println("----------------------------------------");
         }
+    }
+
+    public static void automaticCombat(){
+
+
+        ArrayList<Character> players = new ArrayList<>();
+
+        for (int i = 0; i < 2; i++) {
+            int rand = (int) (Math.random() * 2) + 1;
+            if (rand == 1 ){
+                Warrior warrior = new Warrior("Player " + (i+1),100);
+                players.add(warrior);
+            }else if(rand == 2){
+                Wizard wizard = new Wizard("Player " + (i+1), 100);
+                players.add(wizard);
+            }
+        }
+
+        combat(players);
+
     }
 
     public static ArrayList<Character> importCSV(ArrayList<Character> characters){
