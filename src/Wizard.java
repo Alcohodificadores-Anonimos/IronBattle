@@ -1,9 +1,9 @@
 import java.util.Random;
 
-public class Wizard extends Character{
+public class Wizard extends Character {
 
-    private int mana = (int) (Math.random()*50+10);
-    private int intelligence = (int) (Math.random()*50+1);
+    private int mana = (int) (Math.random() * 50 + 10);
+    private int intelligence = (int) (Math.random() * 50 + 1);
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);
@@ -14,9 +14,9 @@ public class Wizard extends Character{
     public Wizard(String name, int hp) {
         super(name, hp);
         //Random entre 10 y 50
-        setMana(new Random().nextInt(50-10) + 10);
+        setMana(new Random().nextInt(50 - 10) + 10);
         //Random entre 1 y 50
-        setIntelligence(new Random().nextInt(50-1) + 1);
+        setIntelligence(new Random().nextInt(50 - 1) + 1);
     }
 
     public int getMana() {

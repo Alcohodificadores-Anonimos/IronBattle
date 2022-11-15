@@ -1,19 +1,20 @@
 import java.util.Random;
 
-public class Warrior extends Character{
-    private int stamina = (int) (Math.random()*50+10);
-    private int strength = (int) (Math.random()*10+1);
+public class Warrior extends Character {
+    private int stamina = (int) (Math.random() * 50 + 10);
+    private int strength = (int) (Math.random() * 10 + 1);
 
 
     public Warrior(String name, int hp, int stamina, int strength) {
         super(name, hp);
-       setStamina(stamina);
-       setStrength(strength);
+        setStamina(stamina);
+        setStrength(strength);
     }
+
     public Warrior(String name, int hp) {
         super(name, hp);
-        setStamina(new Random().nextInt(50-10) + 10);
-        setStrength(new Random().nextInt(10-1) + 1);
+        setStamina(new Random().nextInt(50 - 10) + 10);
+        setStrength(new Random().nextInt(10 - 1) + 1);
     }
 
 
@@ -43,6 +44,7 @@ public class Warrior extends Character{
                 ", strength=" + getStrength() +
                 '}';
     }
+
     @Override
     public void attack(Character enemy) {
 
@@ -73,7 +75,7 @@ public class Warrior extends Character{
             case 1:
 
                 //The damage of a staff hit is equal to 2. Every staff hit will recover his mana by 1.
-                dmg = (getStrength()/2);
+                dmg = (getStrength() / 2);
                 setStamina(getStamina() + 1);
                 System.out.println(this.getName() + " ATACA CON UN GOLPE DÉBIL E INFLINGE " + dmg + " DE DAÑO");
                 break;
