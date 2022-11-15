@@ -28,13 +28,7 @@ public class Main {
         System.out.println("BIENVENIDO A IRONBATTLE");
 
         while (menu) {
-            System.out.println("=========MENU===========");
-            System.out.println("SELECIONA 1 PARA CREAR LOS PERSONAJES");
-            System.out.println("SELECIONA 2 PARA ENTRAR A LA BATALLA");
-            System.out.println("SELECCIONA 3 PARA VER EL LOG DEL COMBATE");
-            System.out.println("SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV");
-            System.out.println("SELECCIONA 5 PARA COMBATE AUTOMÁTICO");
-            System.out.println("SELECCIONA 6 PARA SALIR DEL JUEGO");
+            printMenu();
             options = scanner.nextInt();
             switch (options) {
                 case 1:
@@ -44,6 +38,7 @@ public class Main {
                     switch (options2) {
                         case 1:
                             if (alreadyPlayer1) {
+                                // llamar método celar + createWarrior (mismo codigo en if)
                                 players.clear();
                                 alreadyPlayer1=false;
                                 contadorPlayers=0;
@@ -63,6 +58,7 @@ public class Main {
                                 break;
 
                             } else if(!alreadyPlayer1){
+                                // llamar método createWarrior (mismo codigo en if)
                                 System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
                                 nameWarrior = scanner.next();
                                 System.out.println("INTRODUCE LA VIDA DEL WARRIOR");
@@ -81,6 +77,7 @@ public class Main {
 
                                 case 2:
                                     if (alreadyPlayer1) {
+                                        // llamar método clear createWizard (mismo codigo en if)
                                         players.clear();
                                         alreadyPlayer1 = false;
                                         contadorPlayers=0;
@@ -99,6 +96,7 @@ public class Main {
                                         System.out.println(wizard);
                                         break;
                                     } else if (!alreadyPlayer1){
+                                        // llamar método createWizard (mismo codigo en if)
                                         System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
                                         nameWizard = scanner.next();
                                         System.out.println("INTRODUCE LA VIDA DEL WIZARD");
@@ -157,4 +155,16 @@ public class Main {
             }
         }
 
+    //private static void createWarrior(ArrayList<Character> players) {}
+
+    public static void printMenu() {
+        System.out.println("=========MENU===========");
+        System.out.println("SELECIONA 1 PARA CREAR LOS PERSONAJES");
+        System.out.println("SELECIONA 2 PARA ENTRAR A LA BATALLA");
+        System.out.println("SELECCIONA 3 PARA VER EL LOG DEL COMBATE");
+        System.out.println("SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV");
+        System.out.println("SELECCIONA 5 PARA COMBATE AUTOMÁTICO");
+        System.out.println("SELECCIONA 6 PARA SALIR DEL JUEGO");
     }
+
+}
