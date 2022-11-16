@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
 
         //Variables de menu
         boolean menu = true;
@@ -14,16 +13,14 @@ public class Main {
         int options2;
         boolean alreadyPlayer1 = false;
         //Variables creacion de personajes
-        String nameWarrior;
-        int hpWarrior;
-        int staminaWarrior;
-        int strengthWarrior;
-        String nameWizard;
-        int hpWizard;
-        int manaWizard;
-        int intelligenceWizard;
+
+
         int contadorPlayers = 0;
         ArrayList<Character> players = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+
+
 
         System.out.println("BIENVENIDO A IRONBATTLE");
 
@@ -32,46 +29,24 @@ public class Main {
             options = scanner.nextInt();
             switch (options) {
                 case 1:
-                    System.out.println("SELECCIONA 1 PARA CREAR UN WARRIOR");
-                    System.out.println("SELECCIONA 2 PARA CREAR UN WIZARD");
+                    printSubMenu();
                     options2 = scanner.nextInt();
                     switch (options2) {
                         case 1:
                             if (alreadyPlayer1) {
                                 // llamar método celar + createWarrior (mismo codigo en if)
+
+                                //Limpiamos el Array por si hay persanjes importados mediante el CSV
                                 players.clear();
+
                                 alreadyPlayer1 = false;
                                 contadorPlayers = 0;
-                                System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
-                                nameWarrior = scanner.next();
-                                System.out.println("INTRODUCE LA VIDA DEL WARRIOR");
-                                hpWarrior = scanner.nextInt();
-                                System.out.println("INTRODUCE LA STAMINA DEL WARRIOR");
-                                staminaWarrior = scanner.nextInt();
-                                System.out.println("INTRODUCE LA FUERZA DEL WARRIOR");
-                                strengthWarrior = scanner.nextInt();
-                                Warrior warrior = new Warrior(nameWarrior, hpWarrior, staminaWarrior, strengthWarrior);
-                                players.add(warrior);
+                                players.add(Utilities.createWarrior());
                                 contadorPlayers++;
-                                System.out.println("PERSONAJE " + contadorPlayers + ": WARRIOR CREADO");
-                                System.out.println(warrior);
                                 break;
-
                             } else if (!alreadyPlayer1) {
-                                // llamar método createWarrior (mismo codigo en if)
-                                System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
-                                nameWarrior = scanner.next();
-                                System.out.println("INTRODUCE LA VIDA DEL WARRIOR");
-                                hpWarrior = scanner.nextInt();
-                                System.out.println("INTRODUCE LA STAMINA DEL WARRIOR");
-                                staminaWarrior = scanner.nextInt();
-                                System.out.println("INTRODUCE LA FUERZA DEL WARRIOR");
-                                strengthWarrior = scanner.nextInt();
-                                Warrior warrior = new Warrior(nameWarrior, hpWarrior, staminaWarrior, strengthWarrior);
-                                players.add(warrior);
+                                players.add(Utilities.createWarrior());
                                 contadorPlayers++;
-                                System.out.println("PERSONAJE " + contadorPlayers + ": WARRIOR CREADO");
-                                System.out.println(warrior);
                                 break;
                             }
 
@@ -81,35 +56,13 @@ public class Main {
                                 players.clear();
                                 alreadyPlayer1 = false;
                                 contadorPlayers = 0;
-                                System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
-                                nameWizard = scanner.next();
-                                System.out.println("INTRODUCE LA VIDA DEL WIZARD");
-                                hpWizard = scanner.nextInt();
-                                System.out.println("INTRODUCE EL MANA DEL WIZARD");
-                                manaWizard = scanner.nextInt();
-                                System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD");
-                                intelligenceWizard = scanner.nextInt();
-                                Wizard wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
-                                players.add(wizard);
+                                players.add(Utilities.createWizard());
                                 contadorPlayers++;
-                                System.out.println("PERSONAJE " + contadorPlayers + ": WIZARD CREADO");
-                                System.out.println(wizard);
                                 break;
                             } else if (!alreadyPlayer1) {
                                 // llamar método createWizard (mismo codigo en if)
-                                System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
-                                nameWizard = scanner.next();
-                                System.out.println("INTRODUCE LA VIDA DEL WIZARD");
-                                hpWizard = scanner.nextInt();
-                                System.out.println("INTRODUCE EL MANA DEL WIZARD");
-                                manaWizard = scanner.nextInt();
-                                System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD");
-                                intelligenceWizard = scanner.nextInt();
-                                Wizard wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
-                                players.add(wizard);
+                                players.add(Utilities.createWizard());
                                 contadorPlayers++;
-                                System.out.println("PERSONAJE " + contadorPlayers + ": WIZARD CREADO");
-                                System.out.println(wizard);
                             }
 
                         default:
@@ -120,8 +73,7 @@ public class Main {
                 case 2:
 
                     if (contadorPlayers >= 2) {
-                        System.out.println("-------------EMPEZANDO EL COMBATE----------------");
-                        System.out.println();
+                        //Metodo que llama para empezar el combate
                         Utilities.combat(players);
                         break;
                     } else {
@@ -142,7 +94,6 @@ public class Main {
                     break;
                 case 5:
                     //METODO COMBATE AUTOMATICO
-                    System.out.println("EMPIEZA COMBATE AUTOMÁTICO");
                     Utilities.automaticCombat();
                     break;
                 case 6:
@@ -158,6 +109,8 @@ public class Main {
 
     //private static void createWarrior(ArrayList<Character> players) {}
 
+
+
     public static void printMenu() {
         System.out.println("=========MENU===========");
         System.out.println("SELECIONA 1 PARA CREAR LOS PERSONAJES");
@@ -166,6 +119,11 @@ public class Main {
         System.out.println("SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV");
         System.out.println("SELECCIONA 5 PARA COMBATE AUTOMÁTICO");
         System.out.println("SELECCIONA 6 PARA SALIR DEL JUEGO");
+    }
+
+    public static void printSubMenu(){
+        System.out.println("SELECCIONA 1 PARA CREAR UN WARRIOR");
+        System.out.println("SELECCIONA 2 PARA CREAR UN WIZARD");
     }
 
 }
