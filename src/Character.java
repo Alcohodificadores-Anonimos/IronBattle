@@ -32,23 +32,7 @@ public abstract class Character implements Attacker {
     }
 
     public void setHp(int hp) {
-
-        if (this instanceof Warrior) {
-
-            //Random between 100-200 to warrior
-            this.hp = new Random().nextInt(200 - 100) + 100;
-
-        } else if (this instanceof Wizard) {
-
-            //Random between 50-100 for wizards
-            this.hp = new Random().nextInt(100 - 50) + 50;
-
-        } else {
-
-            this.hp = hp;
-
-        }
-
+        this.hp = hp;
     }
 
     public boolean getIsAlive() {
