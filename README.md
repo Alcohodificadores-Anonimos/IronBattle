@@ -14,10 +14,11 @@ Funcionamiento:
                 y modificar todas sus características 
             2.- PARA ENTRAR A LA BATALLA:  Deberemos introducir un 2. Esta opción inicializará el combate siempre y cuando tengamos creados
                 2 personajes para combatir
-            3.- PARA IMPORTAR PERSONAJES DE UN CSV: Deberemos introducir un 3. Esta opción permite al ususario importar los personajes junto 
+            3.- PARA VER TODOS PERSONAJES: Simplemente mostramos todos los personajes dispobiles que tengamos.
+            4.- PARA IMPORTAR PERSONAJES DE UN CSV: Esta opción permite al ususario importar los personajes junto 
                 con sus características desde un archivo con extension .csv
-            4.- PARA COMBATE AUTOMÁTICO: Deberemos introducir un 4. El programa automáticamemnte generará dos personajes randomizados y dará inicio al combate.
-            5.- PARA SALIR DEL JUEGO: Deberemos introducir un 5. Finalizaremos el simulador.
+            5.- PARA COMBATE AUTOMÁTICO: Deberemos introducir un 4. El programa automáticamemnte generará dos personajes randomizados y dará inicio al combate.
+            6.- PARA SALIR DEL JUEGO: Deberemos introducir un 5. Finalizaremos el simulador.
                
 
 Créditos:
