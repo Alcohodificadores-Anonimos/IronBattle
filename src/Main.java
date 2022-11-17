@@ -75,14 +75,14 @@ public class Main {
                         //Método que llama para empezar el combate
                         Utilities.combat(players);
                         contadorPlayers -= 2;
-                        break;
 
                     } else {
 
                         System.out.println("¡CREA LOS PERSONAJES ANTES!\n");
-                        break;
 
                     }
+
+                    break;
 
                 case "3":
 
@@ -94,22 +94,20 @@ public class Main {
 
                 case "4":
 
-                    System.out.println("PERSONAJES IMPORTADOS");
-                    players = Utilities.importCSV(players);
-                    contadorPlayers = 2;
-                    alreadyPlayer1 = true;
-                    System.out.println(players);
+                    importarPersonajes();
+
                     break;
 
                 case "5":
 
-                    //METODO COMBATE AUTOMATICO
                     Utilities.automaticCombat();
+
                     break;
 
                 case "6":
 
                     System.out.println("SALIENDO DEL JUEGO...");
+
                     return;
 
                 default:
@@ -119,6 +117,16 @@ public class Main {
             }
 
         }
+
+    }
+
+    private static void importarPersonajes() {
+
+        players = Utilities.importCSV(players);
+        contadorPlayers = 2;
+        alreadyPlayer1 = true;
+        System.out.println("PERSONAJES IMPORTADOS");
+        System.out.println(players);
 
     }
 
