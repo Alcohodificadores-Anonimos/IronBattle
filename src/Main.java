@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -35,23 +34,15 @@ public class Main {
                                 /*
                                 // llamar método clear + createWarrior (mismo codigo en if)
                                 //Limpiamos el Array por si hay personajes importados mediante el CSV
-                                players.clear();
-
-                                alreadyPlayer1 = false;
-                                contadorPlayers = 0;
-                                players.add(Utilities.createWarrior());
-                                contadorPlayers++;
-
                                  */
 
                                 //todo: Mirar esto
                                 players.clear();
                                 alreadyPlayer1 = false;
                                 contadorPlayers = 0;
-                                contadorPlayers++;
 
                                 players.add(Utilities.createWarrior());
-
+                                contadorPlayers++;
                                 break;
 
                             }
@@ -75,7 +66,6 @@ public class Main {
                                 contadorPlayers = 0;
                                 players.add(Utilities.createWizard());
                                 contadorPlayers++;
-
                                 break;
 
                             } else {
@@ -89,7 +79,6 @@ public class Main {
                         default:
 
                             System.out.println("¡SELECCIONA UNA OPCIÓN VÁLIDA!");
-
                             break;
 
                     }
@@ -103,7 +92,6 @@ public class Main {
                         //Método que llama para empezar el combate
                         Utilities.combat(players);
                         contadorPlayers -= 2;
-
                         break;
 
                     } else {
@@ -127,7 +115,6 @@ public class Main {
                     contadorPlayers = 2;
                     alreadyPlayer1 = true;
                     System.out.println(players);
-
                     break;
 
                 case "5":
@@ -151,18 +138,17 @@ public class Main {
 
     }
 
-    //private static void createWarrior(ArrayList<Character> players) {}
-
-
     public static void printMenu() {
 
-        System.out.println("=========MENU===========\n" +
-                "SELECIONA 1 PARA CREAR LOS PERSONAJES\n" +
-                "SELECIONA 2 PARA ENTRAR A LA BATALLA\n" +
-                "SELECCIONA 3 PARA VER EL LOG DEL COMBATE\n" +
-                "SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV\n" +
-                "SELECCIONA 5 PARA COMBATE AUTOMÁTICO\n" +
-                "SELECCIONA 6 PARA SALIR DEL JUEGO\n");
+        System.out.println("""
+                =========MENU===========
+                SELECIONA 1 PARA CREAR LOS PERSONAJES
+                SELECIONA 2 PARA ENTRAR A LA BATALLA
+                SELECCIONA 3 PARA VER EL LOG DEL COMBATE
+                SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV
+                SELECCIONA 5 PARA COMBATE AUTOMÁTICO
+                SELECCIONA 6 PARA SALIR DEL JUEGO
+                """);
 
     }
 
