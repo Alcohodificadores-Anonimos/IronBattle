@@ -6,7 +6,7 @@ public abstract class Character implements Attacker {
     private int hp; // todo. Preguntar esto a los profes porque lo quieren random si luego en los constructores el valor
     //será sobreescrito. Mirar método setHp()
     //todo: preguntar si s tiene que hacer un 3er constructor
-    private boolean isAlive = true;
+    private boolean isAlive;
 
     public Character(String name, int hp) {
         this.id = getIdCounterToString();
@@ -15,6 +15,7 @@ public abstract class Character implements Attacker {
         else if (this instanceof Wizard) this.hp = new Random().nextInt(100 - 50) + 50;
         else*/
         setHp(hp);
+        this.isAlive = true;
     }
 
     public String getId() {

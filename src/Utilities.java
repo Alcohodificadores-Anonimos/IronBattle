@@ -151,29 +151,36 @@ public class Utilities {
 
     public static void combat(ArrayList<Character> players) {
 
-        System.out.println("-------------EMPEZANDO EL COMBATE----------------");
-        System.out.println();
-
         int turnos = 1;
+
+        Character character1 = players.get(0);
+        Character character2 = players.get(1);
+
+        System.out.println("-------------EMPEZANDO EL COMBATE----------------\n");
 
         // El combate se ejecuta por cada dos players, si el array es impar, no ejecuta
         // combate para el último player
-        while (players.get(0).getHp() > 0 && players.get(1).getHp() > 0) {
-            System.out.println("   TURNO " + turnos);
-            turnos++;
-            players.get(0).attack(players.get(1));
-            players.get(1).attack(players.get(0));
-            System.out.println("ESTADISTICAS TURNO");
-            System.out.println("Player 1: " + players.get(0).toString());
-            System.out.println("Player 2: " + players.get(1).toString());
-            System.out.println("----------------------------------------");
 
-            if (players.get(0).getHp() <= 0 && players.get(1).getHp() <= 0) {
+        while (character1.getHp() > 0 && character2.getHp() > 0) {
+
+            System.out.println("   TURNO " + turnos);
+
+            turnos++;
+
+            character1.attack(character2);
+            character2.attack(character1);
+
+            System.out.println("ESTADÍSTICAS TURNO\n" +
+                    "Player 1: " + character1 + "\n" +
+                    "Player 2: " + character2 + "\n" +
+                    "----------------------------------------\n");
+
+            if (character1.getHp() <= 0 && character2.getHp() <= 0) {
                 System.out.println("DOBLE K.O., HA SIDO EMPATE.");
-            } else if (players.get(1).getHp() <= 0) {
-                System.out.println(" GANADOR: Player 1: " + players.get(0).toString());
-            } else if (players.get(0).getHp() <= 0) {
-                System.out.println(" GANADOR: Player 2: " + players.get(1).toString());
+            } else if (character2.getHp() <= 0) {
+                System.out.println(" GANADOR: Player 1: " + character1);
+            } else if (character1.getHp() <= 0) {
+                System.out.println(" GANADOR: Player 2: " + character2);
             }
         }
     }
