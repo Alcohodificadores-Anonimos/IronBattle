@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -8,6 +6,8 @@ import java.util.Scanner;
 
 
 public class Utilities {
+
+    private static int contador = 1;
 
     public static Character createWarrior() {
 
@@ -149,11 +149,19 @@ public class Utilities {
         return wizard;
     }
 
-    public static void combat(ArrayList<Character> players) {
+    public static void combat(ArrayList<Character> players) throws IOException {
+        int contador2 = 0;
+        int x = (contador2 -1)/2;
+        if(x==0)x++;
 
+        FileWriter combatsResults = new FileWriter(new File("resultados.txt"), true);
+        Scanner reader = new Scanner(new File("resultados.txt"));
         System.out.println("-------------EMPEZANDO EL COMBATE----------------");
         System.out.println();
+        if (!reader.hasNextLine() || !reader.nextLine().contains("RESULTADOS")) {
+            combatsResults.write(" ----------- RESULTADOS ----------- \n");
 
+        }
         int turnos = 1;
 
         // El combate se ejecuta por cada dos players, si el array es impar, no ejecuta
@@ -169,16 +177,42 @@ public class Utilities {
             System.out.println("----------------------------------------");
 
             if (players.get(0).getHp() <= 0 && players.get(1).getHp() <= 0) {
+                while (reader.hasNextLine()) {
+                    contador2++;
+                    reader.nextLine();
+                }
+
+
+
+               // if(contador2==1) contador2++
+                combatsResults.write("COMBATE "+ x + "\n");
+                contador++;
                 System.out.println("DOBLE K.O., HA SIDO EMPATE.");
+                combatsResults.write("DOBLE K.O., HA SIDO EMPATE. \n");
             } else if (players.get(1).getHp() <= 0) {
+                while (reader.hasNextLine()) {
+                    contador2++;
+                    reader.nextLine();
+                }
+                combatsResults.write("COMBATE "+ x + "\n");
+                contador++;
                 System.out.println(" GANADOR: Player 1: " + players.get(0).toString());
+                combatsResults.write(" GANADOR: Player 1: " + players.get(0).toString() + "\n");
             } else if (players.get(0).getHp() <= 0) {
+                while (reader.hasNextLine()) {
+                    contador2++;
+                    reader.nextLine();
+                }
+                combatsResults.write("COMBATE "+ x + "\n");
+                contador++;
                 System.out.println(" GANADOR: Player 2: " + players.get(1).toString());
+                combatsResults.write(" GANADOR: Player 2: " + players.get(1).toString() + "\n");
             }
         }
+        combatsResults.close();
     }
 
-    public static void automaticCombat() {
+    public static void automaticCombat() throws IOException {
         System.out.println("EMPIEZA COMBATE AUTOMÁTICO");
 
         ArrayList<Character> players = new ArrayList<>();
@@ -244,10 +278,13 @@ public class Utilities {
         return characters;
     }
 
+    public static void escribirResultados(){
+
+
+    }
+
 }
 
-//leerLog
-//leera el fichero log y lo mostrara por pantalla
 
 
 

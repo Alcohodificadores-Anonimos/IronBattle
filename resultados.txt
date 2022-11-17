@@ -1,0 +1,9 @@
+ ----------- RESULTADOS ----------- 
+COMBATE 1
+ GANADOR: Player 2: Warrior{id='1', name='Player 2', hp=79, stamina=5, strength=7}
+COMBATE 1
+ GANADOR: Player 1: Warrior{id='2', name='Player 1', hp=113, stamina=5, strength=8}
+COMBATE 1
+ GANADOR: Player 1: Warrior{id='4', name='Player 1', hp=15, stamina=5, strength=7}
+COMBATE 1
+ GANADOR: Player 1: Warrior{id='6', name='Player 1', hp=142, stamina=0, strength=7}
