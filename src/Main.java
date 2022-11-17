@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
 
         //Variables de menu
-        String options2;
         boolean alreadyPlayer1 = false;
 
         //Variables creacion de personajes
@@ -33,18 +32,31 @@ public class Main {
 
                             if (alreadyPlayer1) {
 
+                                /*
                                 // llamar método clear + createWarrior (mismo codigo en if)
                                 //Limpiamos el Array por si hay personajes importados mediante el CSV
                                 players.clear();
 
                                 alreadyPlayer1 = false;
-                                contadorPlayers = 0; //todo: No entiendo porque se pone 0 de nuevo
+                                contadorPlayers = 0;
                                 players.add(Utilities.createWarrior());
                                 contadorPlayers++;
 
+                                 */
+
+                                //todo: Mirar esto
+                                players.clear();
+                                alreadyPlayer1 = false;
+                                contadorPlayers = 0;
+                                contadorPlayers++;
+
+                                players.add(Utilities.createWarrior());
+
                                 break;
 
-                            } else {
+                            }
+
+                            if (!alreadyPlayer1) {
 
                                 players.add(Utilities.createWarrior());
                                 contadorPlayers++;

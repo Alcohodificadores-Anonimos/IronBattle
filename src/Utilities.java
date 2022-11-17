@@ -20,7 +20,7 @@ public class Utilities {
 
         System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
         nameWarrior = scanner.next();
-        System.out.println("INTRODUCE LA VIDA DEL WARRIOR");
+        System.out.println("INTRODUCE LA VIDA DEL WARRIOR (100-200)");
         while (true) {
 
             if (!scanner.hasNextInt()) {
@@ -32,12 +32,12 @@ public class Utilities {
 
                 hpWarrior = scanner.nextInt();
 
-                if (hpWarrior > 100 && hpWarrior <= 200) break;
+                if (hpWarrior >= 100 && hpWarrior <= 200) break;
                 else System.out.println("El hp tiene que estar entre los rangos 100 y 200");
 
             }
         }
-        System.out.println("INTRODUCE LA STAMINA DEL WARRIOR");
+        System.out.println("INTRODUCE LA STAMINA DEL WARRIOR (1-50)");
         while (true) {
 
             if (!scanner.hasNextInt()) {
@@ -54,7 +54,7 @@ public class Utilities {
 
             }
         }
-        System.out.println("INTRODUCE LA FUERZA DEL WARRIOR");
+        System.out.println("INTRODUCE LA FUERZA DEL WARRIOR (1-10)");
         while (true) {
 
             if (!scanner.hasNextInt()) {
@@ -91,7 +91,7 @@ public class Utilities {
 
         System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
         nameWizard = scanner.next();
-        System.out.println("INTRODUCE LA VIDA DEL WIZARD");
+        System.out.println("INTRODUCE LA VIDA DEL WIZARD (50-100)");
         while (true) {
 
             if (!scanner.hasNextInt()) {
@@ -103,12 +103,12 @@ public class Utilities {
 
                 hpWizard = scanner.nextInt();
 
-                if (hpWizard > 50 && hpWizard <= 100) break;
+                if (hpWizard >= 50 && hpWizard <= 100) break;
                 else System.out.println("El hp tiene que estar entre los rangos 50 y 100");
 
             }
         }
-        System.out.println("INTRODUCE EL MANA DEL WIZARD");
+        System.out.println("INTRODUCE EL MANA DEL WIZARD (10-50)");
         while (true) {
 
             if (!scanner.hasNextInt()) {
@@ -120,12 +120,12 @@ public class Utilities {
 
                 manaWizard = scanner.nextInt();
 
-                if (manaWizard > 10 && manaWizard <= 50) break;
+                if (manaWizard >= 10 && manaWizard <= 50) break;
                 else System.out.println("El mana tiene que estar entre los rangos 10 y 50");
 
             }
         }
-        System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD");
+        System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD (1-50)");
         while (true) {
 
             if (!scanner.hasNextInt()) {
@@ -137,7 +137,7 @@ public class Utilities {
 
                 intelligenceWizard = scanner.nextInt();
 
-                if (intelligenceWizard > 1 && intelligenceWizard <= 50) break;
+                if (intelligenceWizard >= 1 && intelligenceWizard <= 50) break;
                 else System.out.println("La inteligencia tiene que estar entre los rangos 1 y 50");
 
             }

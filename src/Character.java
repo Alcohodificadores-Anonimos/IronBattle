@@ -7,6 +7,7 @@ public abstract class Character implements Attacker {
     private String name;
     private int hp; // todo. Preguntar esto a los profes porque lo quieren random si luego en los constructores el valor
     //será sobreescrito. Mirar método setHp()
+    //todo: preguntar si s tiene que hacer un 3er constructor
     private boolean isAlive = true;
 
     public Character(String name, int hp) {
