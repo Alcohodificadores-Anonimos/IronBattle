@@ -56,14 +56,10 @@ public class Wizard extends Character {
         random = (int) Math.round(Math.random());
 
         //If a wizard does not have the mana to cast a Fireball he will do a Staff hit instead.
-        if (getMana() < 5) {
-            random = 1;
-        }
+        if (getMana() < 5) random = 1;
 
         //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
-        if (getMana() < 2) {
-            random = 2;
-        }
+        if (getMana() < 2) random = 2;
 
         //Fireball -> random = 0, Staff hit -> random = 1, No mana -> random = 2
         switch (random) {

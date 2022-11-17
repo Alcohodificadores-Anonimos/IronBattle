@@ -6,16 +6,16 @@ public abstract class Character implements Attacker {
     private String id;
     private String name;
     private int hp; // todo. Preguntar esto a los profes porque lo quieren random si luego en los constructores el valor
-                    //será sobreescrito. Mirar método setHp()
+    //será sobreescrito. Mirar método setHp()
     private boolean isAlive = true;
 
     public Character(String name, int hp) {
         this.id = getIdCounterToString();
         setName(name);
-        if (this instanceof Warrior)  this.hp = new Random().nextInt(200 - 100) + 100;
+        /*if (this instanceof Warrior)  this.hp = new Random().nextInt(200 - 100) + 100;
         else if (this instanceof Wizard) this.hp = new Random().nextInt(100 - 50) + 50;
-        else setHp(hp);
-
+        else*/
+        setHp(hp);
     }
 
     public String getId() {
