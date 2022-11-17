@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Utilities {
 
-    private static int contador = 1;
+
 
     public static Character createWarrior() {
 
@@ -150,9 +150,8 @@ public class Utilities {
     }
 
     public static void combat(ArrayList<Character> players) throws IOException {
-        int contador2 = 0;
-        int x = (contador2 -1)/2;
-        if(x==0)x++;
+        double contador2 = 1;
+        if(contador2==1)contador2++;
 
         FileWriter combatsResults = new FileWriter(new File("resultados.txt"), true);
         Scanner reader = new Scanner(new File("resultados.txt"));
@@ -184,9 +183,9 @@ public class Utilities {
 
 
 
-               // if(contador2==1) contador2++
-                combatsResults.write("COMBATE "+ x + "\n");
-                contador++;
+                // if(contador2==1) contador2++
+                combatsResults.write("COMBATE "+ Math.round((contador2-1)/2) + "\n");
+
                 System.out.println("DOBLE K.O., HA SIDO EMPATE.");
                 combatsResults.write("DOBLE K.O., HA SIDO EMPATE. \n");
             } else if (players.get(1).getHp() <= 0) {
@@ -194,8 +193,8 @@ public class Utilities {
                     contador2++;
                     reader.nextLine();
                 }
-                combatsResults.write("COMBATE "+ x + "\n");
-                contador++;
+                combatsResults.write("COMBATE "+ Math.round((contador2-1)/2) + "\n");
+
                 System.out.println(" GANADOR: Player 1: " + players.get(0).toString());
                 combatsResults.write(" GANADOR: Player 1: " + players.get(0).toString() + "\n");
             } else if (players.get(0).getHp() <= 0) {
@@ -203,8 +202,8 @@ public class Utilities {
                     contador2++;
                     reader.nextLine();
                 }
-                combatsResults.write("COMBATE "+ x + "\n");
-                contador++;
+                combatsResults.write("COMBATE "+ Math.round((contador2-1)/2) + "\n");
+
                 System.out.println(" GANADOR: Player 2: " + players.get(1).toString());
                 combatsResults.write(" GANADOR: Player 2: " + players.get(1).toString() + "\n");
             }
