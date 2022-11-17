@@ -152,6 +152,7 @@ public class Utilities {
                 wizard + "\n");
 
         return wizard;
+
     }
 
     public static void combat(ArrayList<Character> players) {
@@ -166,6 +167,11 @@ public class Utilities {
         //El combate se ejecuta por cada dos players, si el array es impar, no ejecuta combate para el último player
         //Mientras que uno de los 2 characters esté vivo, seguiremos los turnos
         while (character1.getIsAlive() && character2.getIsAlive()) {
+
+            //Sin esta condición erróneamente haría 1 turno más con uno de los personajes muerto
+            if (character1.getHp() <= 0 || character2.getHp() <= 0) {
+                return;
+            }
 
             System.out.println("   TURNO " + turnos);
 
@@ -188,6 +194,7 @@ public class Utilities {
             }
 
         }
+
     }
 
     public static void automaticCombat() {
@@ -224,9 +231,10 @@ public class Utilities {
 
     public static ArrayList<Character> importCSV(ArrayList<Character> characters) {
 
-        characters.clear();
+        //characters.clear();
 
         BufferedReader bufferedReader = null;
+
         try {
             // Abrir el .csv en buffer de lectura
             bufferedReader = new BufferedReader(new FileReader("Players.csv"));

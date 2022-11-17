@@ -35,8 +35,6 @@ public class Main {
 
                                 createCharacter(true);
 
-                                break;
-
                             } else {
 
                                 players.add(Utilities.createWarrior());
@@ -44,13 +42,13 @@ public class Main {
 
                             }
 
+                            break;
+
                         case "2":
 
                             if (alreadyPlayer1) {
 
                                 createCharacter(false);
-
-                                break;
 
                             } else {
 
@@ -58,6 +56,8 @@ public class Main {
                                 contadorPlayers++;
 
                             }
+
+                            break;
 
                         default:
 
@@ -86,9 +86,8 @@ public class Main {
 
                 case "3":
 
-                    //METODO PARA VER EL LOG DEL COMBATE
-                    System.out.println("LOG DEL COMBATE");
-                    //todo: EL COMBATE NO GUARDA LOG, MÉTODO A MODIFICAR
+                    System.out.println("CANTIDAD DE PERSONAJES: " + players.size());
+                    players.forEach((player) -> System.out.println(player));
 
                     break;
 
@@ -123,7 +122,7 @@ public class Main {
     private static void importarPersonajes() {
 
         players = Utilities.importCSV(players);
-        contadorPlayers = 2;
+        contadorPlayers = players.size() + 2;
         alreadyPlayer1 = true;
         System.out.println("PERSONAJES IMPORTADOS");
         System.out.println(players);
@@ -146,7 +145,7 @@ public class Main {
                 =========MENU===========
                 SELECIONA 1 PARA CREAR LOS PERSONAJES
                 SELECIONA 2 PARA ENTRAR A LA BATALLA
-                SELECCIONA 3 PARA VER EL LOG DEL COMBATE
+                SELECCIONA 3 PARA VER TODOS LOS PERSONAJES
                 SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV
                 SELECCIONA 5 PARA COMBATE AUTOMÁTICO
                 SELECCIONA 6 PARA SALIR DEL JUEGO
@@ -156,8 +155,10 @@ public class Main {
 
     public static void printSubMenu() {
 
-        System.out.println("SELECCIONA 1 PARA CREAR UN WARRIOR\n" +
-                "SELECCIONA 2 PARA CREAR UN WIZARD\n");
+        System.out.println("""
+                SELECCIONA 1 PARA CREAR UN WARRIOR
+                SELECCIONA 2 PARA CREAR UN WIZARD
+                """);
 
     }
 

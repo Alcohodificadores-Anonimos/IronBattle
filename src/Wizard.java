@@ -1,7 +1,7 @@
 public class Wizard extends Character {
 
-    private int mana = (int) (Math.random() * 50 + 10);
-    private int intelligence = (int) (Math.random() * 50 + 1);
+    private int mana;
+    private int intelligence;
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);
@@ -9,7 +9,6 @@ public class Wizard extends Character {
         setIntelligence(intelligence);
     }
 
-    //todo: Mirar donde poner el random si en la declaración de la variable o en el constructor
     public Wizard(String name, int hp) {
         super(name, hp);
         //Random entre 10 y 50
