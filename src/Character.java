@@ -12,7 +12,10 @@ public abstract class Character implements Attacker {
     public Character(String name, int hp) {
         this.id = getIdCounterToString();
         setName(name);
-        setHp(hp);
+        if (this instanceof Warrior)  this.hp = new Random().nextInt(200 - 100) + 100;
+        else if (this instanceof Wizard) this.hp = new Random().nextInt(100 - 50) + 50;
+        else setHp(hp);
+
     }
 
     public String getId() {
