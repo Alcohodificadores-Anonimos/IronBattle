@@ -9,6 +9,7 @@ public class Warrior extends Character {
         setStrength(strength);
     }
 
+    //todo: Mirar donde poner el random si en la declaración de la variable o en el constructor
     public Warrior(String name, int hp) {
         super(name, hp);
         setStamina((int) (Math.random() * 50 + 10));
@@ -92,6 +93,8 @@ public class Warrior extends Character {
         enemy.setHp(enemy.getHp() - dmg);
 
         //Si al final no ha tenido stamina, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
+
+        if (getHp() <= 0) setIsAlive(false);
 
     }
 }

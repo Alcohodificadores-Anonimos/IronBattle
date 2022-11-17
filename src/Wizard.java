@@ -9,6 +9,7 @@ public class Wizard extends Character {
         setIntelligence(intelligence);
     }
 
+    //todo: Mirar donde poner el random si en la declaración de la variable o en el constructor
     public Wizard(String name, int hp) {
         super(name, hp);
         //Random entre 10 y 50
@@ -92,5 +93,8 @@ public class Wizard extends Character {
         character.setHp(character.getHp() - dmg);
 
         //Si al final no ha tenido mana, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
+
+        if (getHp() <= 0) setIsAlive(false);
+
     }
 }
