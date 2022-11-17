@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Wizard extends Character {
 
     private int mana = (int) (Math.random() * 50 + 10);
@@ -14,9 +12,9 @@ public class Wizard extends Character {
     public Wizard(String name, int hp) {
         super(name, hp);
         //Random entre 10 y 50
-        setMana(new Random().nextInt(50 - 10) + 10);
+        setMana((int) (Math.random() * 50 + 10));
         //Random entre 1 y 50
-        setIntelligence(new Random().nextInt(50 - 1) + 1);
+        setIntelligence((int) (Math.random() * 50 + 1));
     }
 
     public int getMana() {

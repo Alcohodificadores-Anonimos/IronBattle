@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Warrior extends Character {
     private int stamina = (int) (Math.random() * 50 + 10);
     private int strength = (int) (Math.random() * 10 + 1);
@@ -13,8 +11,8 @@ public class Warrior extends Character {
 
     public Warrior(String name, int hp) {
         super(name, hp);
-        setStamina(new Random().nextInt(50 - 10) + 10);
-        setStrength(new Random().nextInt(10 - 1) + 1);
+        setStamina((int) (Math.random() * 50 + 10));
+        setStrength((int) (Math.random() * 10 + 1));
     }
 
 

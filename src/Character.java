@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public abstract class Character implements Attacker {
 
     private static int idCounter;
