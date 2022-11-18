@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class Utilities {
 
     public static Character createWarrior() {
@@ -18,7 +17,7 @@ public class Utilities {
 
         System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
         nameWarrior = scanner.next();
-        
+
         System.out.println("INTRODUCE LA VIDA DEL WARRIOR (100-200)");
         while (true) {
 
@@ -35,9 +34,9 @@ public class Utilities {
                 else System.out.println("El hp tiene que estar entre los rangos 100 y 200");
 
             }
-            
+
         }
-        
+
         System.out.println("INTRODUCE LA STAMINA DEL WARRIOR (1-50)");
         while (true) {
 
@@ -47,7 +46,7 @@ public class Utilities {
                 System.out.println("Introduce un número válido!");
 
             } else {
-                
+
                 staminaWarrior = scanner.nextInt();
 
                 if (staminaWarrior > 0 && staminaWarrior <= 50) break;
@@ -55,7 +54,7 @@ public class Utilities {
 
             }
         }
-        
+
         System.out.println("INTRODUCE LA FUERZA DEL WARRIOR (1-10)");
         while (true) {
 
@@ -73,9 +72,9 @@ public class Utilities {
 
             }
         }
-        
+
         warrior = new Warrior(nameWarrior, hpWarrior, staminaWarrior, strengthWarrior);
-        
+
         System.out.println("WARRIOR CREADO\n" + warrior);
 
         return warrior;
@@ -93,7 +92,7 @@ public class Utilities {
 
         System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
         nameWizard = scanner.next();
-        
+
         System.out.println("INTRODUCE LA VIDA DEL WIZARD (50-100)");
         while (true) {
 
@@ -110,8 +109,9 @@ public class Utilities {
                 else System.out.println("El hp tiene que estar entre los rangos 50 y 100");
 
             }
+
         }
-        
+
         System.out.println("INTRODUCE EL MANA DEL WIZARD (10-50)");
         while (true) {
 
@@ -128,8 +128,9 @@ public class Utilities {
                 else System.out.println("El mana tiene que estar entre los rangos 10 y 50");
 
             }
+
         }
-        
+
         System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD (1-50)");
         while (true) {
 
@@ -146,119 +147,132 @@ public class Utilities {
                 else System.out.println("La inteligencia tiene que estar entre los rangos 1 y 50");
 
             }
+
         }
-        
+
         wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
 
-        System.out.println("WIZARD CREADO\n" +
-                wizard + "\n");
+        System.out.println("WIZARD CREADO\n" + wizard + "\n");
 
         return wizard;
-        
+
     }
 
     public static void combat(ArrayList<Character> players) throws IOException {
-        
+
         double contador = 1;
+        int turnos = 1;
+
+        Character character1 = players.get(0);
+        Character character2 = players.get(1);
+
+        File fileResultados = new File("resultados.txt");
+
         if (contador == 1) contador++;
 
-        FileWriter combatsResults = new FileWriter(new File("resultados.txt"), true);
-        
-        Scanner reader = new Scanner(new File("resultados.txt"));
-        
-        System.out.println("-------------EMPEZANDO EL COMBATE----------------\n");
-        
+        FileWriter combatsResults = new FileWriter(fileResultados, true);
+
+        Scanner reader = new Scanner(fileResultados);
+
         if (!reader.hasNextLine() || !reader.nextLine().contains("RESULTADOS")) {
-            
+
             combatsResults.write(" ----------- RESULTADOS ----------- \n");
 
         }
-        
-        int turnos = 1;
 
-        // El combate se ejecuta por cada dos players, si el array es impar, no ejecuta
-        // combate para el último player
-        while (players.get(0).getHp() > 0 && players.get(1).getHp() > 0) {
-            
+        System.out.println("-------------EMPEZANDO EL COMBATE----------------\n");
+
+        //El combate se ejecuta por cada dos players, si el array es impar, no ejecuta combate para el último player
+        //Mientras que uno de los 2 characters esté vivo, seguiremos los turnos
+        while (character1.getIsAlive() && character2.getIsAlive()) {
+
             System.out.println("   TURNO " + turnos);
-            turnos++;
-            
-            players.get(0).attack(players.get(1));
-            players.get(1).attack(players.get(0));
-            
-            System.out.println("ESTADISTICAS TURNO");
-            System.out.println("Player 1: " + players.get(0).toString());
-            System.out.println("Player 2: " + players.get(1).toString());
-            System.out.println("----------------------------------------");
 
-            if (players.get(0).getHp() <= 0 && players.get(1).getHp() <= 0) {
-                
+            turnos++;
+
+            //Se atacan los characters
+            character1.attack(character2);
+            character2.attack(character1);
+
+            System.out.println("ESTADÍSTICAS TURNO\n" +
+                    "Player 1: " + character1 + "\n" +
+                    "Player 2: " + character2 + "\n" +
+                    "----------------------------------------\n");
+
+            if (!character1.getIsAlive() && !character2.getIsAlive()) {
+
                 while (reader.hasNextLine()) {
                     contador++;
                     reader.nextLine();
                 }
-                
+
                 combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
                 System.out.println("DOBLE K.O., HA SIDO EMPATE.");
                 combatsResults.write("DOBLE K.O., HA SIDO EMPATE. \n");
-                
-            } else if (players.get(1).getHp() <= 0) {
-                
+
+            } else if (!character2.getIsAlive()) {
+
                 while (reader.hasNextLine()) {
-                    
+
                     contador++;
                     reader.nextLine();
-                    
+
                 }
-                
+
                 combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
-                System.out.println(" GANADOR: Player 1: " + players.get(0).toString());
-                combatsResults.write(" GANADOR: Player 1: " + players.get(0).toString() + "\n");
-                
-            } else if (players.get(0).getHp() <= 0) {
-                
+                System.out.println(" GANADOR: Player 1: " + character1);
+                combatsResults.write(" GANADOR: Player 1: " + character1 + "\n");
+
+            } else if (!character1.getIsAlive()) {
+
                 while (reader.hasNextLine()) {
-                    
+
                     contador++;
                     reader.nextLine();
-                    
+
                 }
-                
+
                 combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
-                System.out.println(" GANADOR: Player 2: " + players.get(1).toString());
-                combatsResults.write(" GANADOR: Player 2: " + players.get(1).toString() + "\n");
-                
+                System.out.println(" GANADOR: Player 2: " + character2);
+                combatsResults.write(" GANADOR: Player 2: " + character2 + "\n");
+
             }
-            
+
         }
-        
+
         combatsResults.close();
-        
+
     }
 
     public static void automaticCombat() throws IOException {
-        
+
         System.out.println("EMPIEZA COMBATE AUTOMÁTICO");
 
         ArrayList<Character> players = new ArrayList<>();
 
         for (int i = 0; i < 2; i++) {
-            
-            int rand = (int) (Math.random() * 2) + 1;
-            
-            if (rand == 1) {
-                
-                players.add(new Warrior("Player " + (i + 1), new Random().nextInt(200 - 100) + 100));
-                
-            } else if (rand == 2) {
-                
-                players.add(new Wizard("Player " + (i + 1), new Random().nextInt(100 - 50) + 50));
-                
+
+            //Random entre 1 y 2
+            switch ((int) (Math.random() * 2) + 1) {
+
+                case 1:
+
+                    Warrior warrior = new Warrior("Player " + (i + 1), new Random().nextInt(200 - 100) + 100);
+                    players.add(warrior);
+
+                    break;
+
+                case 2:
+
+                    Wizard wizard = new Wizard("Player " + (i + 1), new Random().nextInt(100 - 50) + 50);
+                    players.add(wizard);
+
+                    break;
             }
-            
+
         }
 
         combat(players);
@@ -267,10 +281,8 @@ public class Utilities {
 
     public static ArrayList<Character> importCSV(ArrayList<Character> characters) {
 
-        //characters.clear();
-
         BufferedReader bufferedReader = null;
-        
+
         try {
             // Abrir el .csv en buffer de lectura
             bufferedReader = new BufferedReader(new FileReader("Players.csv"));
