@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 public class Utilities {
 
+    private static double contador;
+    private static Scanner reader;
+    private static FileWriter combatsResults;
+
     public static Character createWarrior() {
 
         Scanner scanner = new Scanner(System.in);
@@ -160,8 +164,9 @@ public class Utilities {
 
     public static void combat(ArrayList<Character> players) throws IOException {
 
-        double contador = 1;
+        contador = 1;
         int turnos = 1;
+        String msg;
 
         Character character1 = players.get(0);
         Character character2 = players.get(1);
@@ -170,9 +175,9 @@ public class Utilities {
 
         if (contador == 1) contador++;
 
-        FileWriter combatsResults = new FileWriter(fileResultados, true);
+        combatsResults = new FileWriter(fileResultados, true);
 
-        Scanner reader = new Scanner(fileResultados);
+        reader = new Scanner(fileResultados);
 
         if (!reader.hasNextLine() || !reader.nextLine().contains("RESULTADOS")) {
 
@@ -199,51 +204,46 @@ public class Utilities {
                     "Player 2: " + character2 + "\n" +
                     "----------------------------------------\n");
 
+            //Si ambos estan muertos
             if (!character1.getIsAlive() && !character2.getIsAlive()) {
 
-                while (reader.hasNextLine()) {
-                    contador++;
-                    reader.nextLine();
-                }
+                imprimirFinCombate("DOBLE K.O., HA SIDO EMPATE. \n");
 
-                combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
+            }
 
-                System.out.println("DOBLE K.O., HA SIDO EMPATE.");
-                combatsResults.write("DOBLE K.O., HA SIDO EMPATE. \n");
+            //Si muere el jugador 2
+            if (!character2.getIsAlive()) {
 
-            } else if (!character2.getIsAlive()) {
+                imprimirFinCombate(" GANADOR: Player 1: " + character1 + "\n");
 
-                while (reader.hasNextLine()) {
+            }
 
-                    contador++;
-                    reader.nextLine();
+            //Si muere el jugador 1
+            if (!character1.getIsAlive()) {
 
-                }
-
-                combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
-
-                System.out.println(" GANADOR: Player 1: " + character1);
-                combatsResults.write(" GANADOR: Player 1: " + character1 + "\n");
-
-            } else if (!character1.getIsAlive()) {
-
-                while (reader.hasNextLine()) {
-
-                    contador++;
-                    reader.nextLine();
-
-                }
-
-                combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
-
-                System.out.println(" GANADOR: Player 2: " + character2);
-                combatsResults.write(" GANADOR: Player 2: " + character2 + "\n");
+                imprimirFinCombate(" GANADOR: Player 2: " + character2 + "\n");
 
             }
 
         }
 
         combatsResults.close();
+
+    }
+
+    private static void imprimirFinCombate(String msg) throws IOException {
+
+        while (reader.hasNextLine()) {
+
+            contador++;
+            reader.nextLine();
+
+        }
+
+        combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
+
+        System.out.println(msg);
+        combatsResults.write(msg);
 
     }
 

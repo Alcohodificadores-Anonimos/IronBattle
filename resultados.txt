@@ -1,0 +1,31 @@
+ ----------- RESULTADOS ----------- 
+COMBATE 1
+ GANADOR: Player 1: Warrior{id='0', name='Player 1', hp=93, stamina=22, strength=6}
+COMBATE 2
+ GANADOR: Player 1: Wizard{id='2', name='Player 1', hp=32, mana=0, intelligence=4}
+COMBATE 3
+ GANADOR: Player 1: Wizard{id='4', name='Player 1', hp=82, mana=0, intelligence=22}
+COMBATE 4
+ GANADOR: Player 2: Wizard{id='7', name='Player 2', hp=61, mana=31, intelligence=33}
+COMBATE 5
+ GANADOR: Player 2: Wizard{id='9', name='Player 2', hp=30, mana=36, intelligence=37}
+COMBATE 6
+ GANADOR: Player 1: Wizard{id='10', name='Player 1', hp=9, mana=1, intelligence=29}
+COMBATE 7
+ GANADOR: Player 1: Wizard{id='12', name='Player 1', hp=51, mana=5, intelligence=7}
+COMBATE 8
+ GANADOR: Player 2: Wizard{id='15', name='Player 2', hp=38, mana=41, intelligence=49}
+COMBATE 9
+ GANADOR: Player 2: Warrior{id='1', name='Player 2', hp=65, stamina=6, strength=4}
+COMBATE 10
+ GANADOR: Player 2: Warrior{id='3', name='Player 2', hp=65, stamina=7, strength=4}
+COMBATE 11
+ GANADOR: Player 1: Wizard{id='4', name='Player 1', hp=85, mana=46, intelligence=29}
+COMBATE 12
+ GANADOR: Player 2: Warrior{id='7', name='Player 2', hp=167, stamina=0, strength=4}
+COMBATE 13
+ GANADOR: Player 1: Wizard{id='8', name='Player 1', hp=58, mana=32, intelligence=37}
+COMBATE 14
+ GANADOR: Player 1: Wizard{id='10', name='Player 1', hp=58, mana=11, intelligence=37}
+COMBATE 15
+ GANADOR: Player 2: Warrior{id='13', name='Player 2', hp=58, stamina=0, strength=5}
