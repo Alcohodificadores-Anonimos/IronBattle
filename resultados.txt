@@ -5,3 +5,15 @@ COMBATE 2
  GANADOR: Player 2: Wizard{id='3', name='Player 2', hp=4, mana=39, intelligence=27}
 COMBATE 3
  GANADOR: Player 2: Wizard{id='5', name='Player 2', hp=35, mana=45, intelligence=48}
+COMBATE 4
+ GANADOR: Player 2: Wizard{id='1', name='Player 2', hp=11, mana=5, intelligence=40}
+COMBATE 5
+ GANADOR: Player 2: Warrior{id='3', name='Player 2', hp=11, stamina=5, strength=3}
+COMBATE 6
+ GANADOR: Player 2: Wizard{id='5', name='Player 2', hp=13, mana=2, intelligence=36}
+COMBATE 7
+ GANADOR: Player 1: Warrior{id='0', name='Player 1', hp=57, stamina=3, strength=8}
+COMBATE 8
+ GANADOR: Player 2: Warrior{id='3', name='Player 2', hp=4, stamina=3, strength=7}
+COMBATE 9
+ GANADOR: Player 2: Wizard{id='5', name='Player 2', hp=30, mana=41, intelligence=24}

@@ -18,6 +18,7 @@ public class Utilities {
 
         System.out.println("INTRODUCE EL NOMBRE DEL WARRIOR");
         nameWarrior = scanner.next();
+        
         System.out.println("INTRODUCE LA VIDA DEL WARRIOR (100-200)");
         while (true) {
 
@@ -34,7 +35,9 @@ public class Utilities {
                 else System.out.println("El hp tiene que estar entre los rangos 100 y 200");
 
             }
+            
         }
+        
         System.out.println("INTRODUCE LA STAMINA DEL WARRIOR (1-50)");
         while (true) {
 
@@ -44,7 +47,7 @@ public class Utilities {
                 System.out.println("Introduce un número válido!");
 
             } else {
-
+                
                 staminaWarrior = scanner.nextInt();
 
                 if (staminaWarrior > 0 && staminaWarrior <= 50) break;
@@ -52,6 +55,7 @@ public class Utilities {
 
             }
         }
+        
         System.out.println("INTRODUCE LA FUERZA DEL WARRIOR (1-10)");
         while (true) {
 
@@ -69,14 +73,14 @@ public class Utilities {
 
             }
         }
+        
         warrior = new Warrior(nameWarrior, hpWarrior, staminaWarrior, strengthWarrior);
-        System.out.println("WARRIOR CREADO");
-        System.out.println(warrior);
+        
+        System.out.println("WARRIOR CREADO\n" + warrior);
 
         return warrior;
 
     }
-
 
     public static Character createWizard() {
 
@@ -89,6 +93,7 @@ public class Utilities {
 
         System.out.println("INTRODUCE EL NOMBRE DEL WIZARD");
         nameWizard = scanner.next();
+        
         System.out.println("INTRODUCE LA VIDA DEL WIZARD (50-100)");
         while (true) {
 
@@ -106,6 +111,7 @@ public class Utilities {
 
             }
         }
+        
         System.out.println("INTRODUCE EL MANA DEL WIZARD (10-50)");
         while (true) {
 
@@ -123,6 +129,7 @@ public class Utilities {
 
             }
         }
+        
         System.out.println("INTRODUCE LA INTELIGENCIA DEL WIZARD (1-50)");
         while (true) {
 
@@ -140,90 +147,119 @@ public class Utilities {
 
             }
         }
+        
         wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
 
         System.out.println("WIZARD CREADO\n" +
                 wizard + "\n");
 
         return wizard;
+        
     }
 
     public static void combat(ArrayList<Character> players) throws IOException {
-        double contador2 = 1;
-        if(contador2==1)contador2++;
+        
+        double contador = 1;
+        if (contador == 1) contador++;
 
         FileWriter combatsResults = new FileWriter(new File("resultados.txt"), true);
+        
         Scanner reader = new Scanner(new File("resultados.txt"));
-        System.out.println("-------------EMPEZANDO EL COMBATE----------------");
-        System.out.println();
+        
+        System.out.println("-------------EMPEZANDO EL COMBATE----------------\n");
+        
         if (!reader.hasNextLine() || !reader.nextLine().contains("RESULTADOS")) {
+            
             combatsResults.write(" ----------- RESULTADOS ----------- \n");
 
         }
+        
         int turnos = 1;
 
         // El combate se ejecuta por cada dos players, si el array es impar, no ejecuta
         // combate para el último player
         while (players.get(0).getHp() > 0 && players.get(1).getHp() > 0) {
+            
             System.out.println("   TURNO " + turnos);
             turnos++;
+            
             players.get(0).attack(players.get(1));
             players.get(1).attack(players.get(0));
+            
             System.out.println("ESTADISTICAS TURNO");
             System.out.println("Player 1: " + players.get(0).toString());
             System.out.println("Player 2: " + players.get(1).toString());
             System.out.println("----------------------------------------");
 
             if (players.get(0).getHp() <= 0 && players.get(1).getHp() <= 0) {
+                
                 while (reader.hasNextLine()) {
-                    contador2++;
+                    contador++;
                     reader.nextLine();
                 }
-
-
-
-                // if(contador2==1) contador2++
-                combatsResults.write("COMBATE "+ Math.round((contador2-1)/2) + "\n");
+                
+                // if(contador==1) contador++
+                combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
                 System.out.println("DOBLE K.O., HA SIDO EMPATE.");
                 combatsResults.write("DOBLE K.O., HA SIDO EMPATE. \n");
+                
             } else if (players.get(1).getHp() <= 0) {
+                
                 while (reader.hasNextLine()) {
-                    contador2++;
+                    
+                    contador++;
                     reader.nextLine();
+                    
                 }
-                combatsResults.write("COMBATE "+ Math.round((contador2-1)/2) + "\n");
+                
+                combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
                 System.out.println(" GANADOR: Player 1: " + players.get(0).toString());
                 combatsResults.write(" GANADOR: Player 1: " + players.get(0).toString() + "\n");
+                
             } else if (players.get(0).getHp() <= 0) {
+                
                 while (reader.hasNextLine()) {
-                    contador2++;
+                    
+                    contador++;
                     reader.nextLine();
+                    
                 }
-                combatsResults.write("COMBATE "+ Math.round((contador2-1)/2) + "\n");
+                
+                combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
                 System.out.println(" GANADOR: Player 2: " + players.get(1).toString());
                 combatsResults.write(" GANADOR: Player 2: " + players.get(1).toString() + "\n");
+                
             }
+            
         }
+        
         combatsResults.close();
+        
     }
 
     public static void automaticCombat() throws IOException {
+        
         System.out.println("EMPIEZA COMBATE AUTOMÁTICO");
 
         ArrayList<Character> players = new ArrayList<>();
 
         for (int i = 0; i < 2; i++) {
+            
             int rand = (int) (Math.random() * 2) + 1;
+            
             if (rand == 1) {
-                Warrior warrior = new Warrior("Player " + (i + 1), new Random().nextInt(200 - 100) + 100);
-                players.add(warrior);
+                
+                players.add(new Warrior("Player " + (i + 1), new Random().nextInt(200 - 100) + 100));
+                
             } else if (rand == 2) {
-                Wizard wizard = new Wizard("Player " + (i + 1), new Random().nextInt(100 - 50) + 50);
-                players.add(wizard);
+                
+                players.add(new Wizard("Player " + (i + 1), new Random().nextInt(100 - 50) + 50));
+                
             }
+            
         }
 
         combat(players);
@@ -232,9 +268,10 @@ public class Utilities {
 
     public static ArrayList<Character> importCSV(ArrayList<Character> characters) {
 
-        characters.clear();
+        //characters.clear();
 
         BufferedReader bufferedReader = null;
+        
         try {
             // Abrir el .csv en buffer de lectura
             bufferedReader = new BufferedReader(new FileReader("Players.csv"));
@@ -254,7 +291,6 @@ public class Utilities {
                 } else {
                     System.out.println("Los tipos deben ser WARRIOR O WIZARD");
                 }
-
 
                 System.out.println(Arrays.toString(campos));
 
@@ -276,15 +312,7 @@ public class Utilities {
         return characters;
     }
 
-    public static void escribirResultados(){
-
-
-    }
-
 }
-
-//leerLog
-//leera el fichero log y lo mostrara por pantalla
 
 
 
