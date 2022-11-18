@@ -1,6 +1,4 @@
-import java.util.Random;
-
-public class Wizard extends Character implements Attacker {
+public class Wizard extends Character {
 
     private int mana;
     private int intelligence;
@@ -14,9 +12,9 @@ public class Wizard extends Character implements Attacker {
     public Wizard(String name, int hp) {
         super(name, hp);
         //Random entre 10 y 50
-        setMana(new Random().nextInt(50-10) + 10);
+        setMana((int) (Math.random() * 50 + 10));
         //Random entre 1 y 50
-        setIntelligence(new Random().nextInt(50-1) + 1);
+        setIntelligence((int) (Math.random() * 50 + 1));
     }
 
     public int getMana() {
@@ -41,7 +39,6 @@ public class Wizard extends Character implements Attacker {
                 "id='" + getId() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", hp=" + getHp() +
-                ", isAlive=" + getIsAlive() +
                 ", mana=" + getMana() +
                 ", intelligence=" + getIntelligence() +
                 '}';
@@ -57,14 +54,10 @@ public class Wizard extends Character implements Attacker {
         random = (int) Math.round(Math.random());
 
         //If a wizard does not have the mana to cast a Fireball he will do a Staff hit instead.
-        if (getMana() < 5) {
-            random = 1;
-        }
+        if (getMana() < 5) random = 1;
 
         //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
-        if (getMana() < 2) {
-            random = 2;
-        }
+        if (getMana() < 2) random = 2;
 
         //Fireball -> random = 0, Staff hit -> random = 1, No mana -> random = 2
         switch (random) {
@@ -74,7 +67,7 @@ public class Wizard extends Character implements Attacker {
                 //The damage of a Fireball is equal to his intelligence and every Fireball will decrease their mana by 5 points
                 dmg = intelligence;
                 setMana(getMana() - 5);
-
+                System.out.println(this.getName() + " ATACA CON FIREBALL INFLINGIENDO " + dmg + " DE DAÑO");
                 break;
 
             case 1:
@@ -82,15 +75,14 @@ public class Wizard extends Character implements Attacker {
                 //The damage of a staff hit is equal to 2. Every staff hit will recover his mana by 1.
                 dmg = 2;
                 setMana(getMana() + 1);
-
+                System.out.println(this.getName() + " ATACA CON STAFF HIT INFLINGIENDO " + dmg + " DE DAÑO");
                 break;
 
             default:
 
                 //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
                 setMana(random);
-
-                System.out.println("Mana insuficiente, +2 de mana");
+                System.out.println(this.getName() + ". NO PUEDE ATACAR NO TIENE MANA. MANA +2");
 
         }
 
@@ -101,10 +93,7 @@ public class Wizard extends Character implements Attacker {
 
         //Si al final no ha tenido mana, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
 
-        System.out.println("---TURNO ACABADO---");
-        System.out.println("Daño inflinjido: " + dmg);
-        System.out.println("Personaje atacante: " + this.toString());
-        System.out.println("Personaje atacado: " + character.toString());
+        if (getHp() <= 0) setIsAlive(false);
 
     }
 }

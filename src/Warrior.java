@@ -1,14 +1,20 @@
-import java.util.Random;
-
-public class Warrior extends Character implements Attacker {
-    private int stamina; // to check random 10-50
-    private int strength; // random 1-10
+public class Warrior extends Character {
+    private int stamina;
+    private int strength;
 
 
     public Warrior(String name, int hp, int stamina, int strength) {
         super(name, hp);
-       setStamina(stamina);
-       setStrength(strength);
+        setStamina(stamina);
+        setStrength(strength);
+    }
+
+    public Warrior(String name, int hp) {
+        super(name, hp);
+        //Random entre 10 y 50
+        setStamina((int) (Math.random() * 50 + 10));
+        //Random entre 1 y 10
+        setStrength((int) (Math.random() * 10 + 1));
     }
 
     public int getStamina() {
@@ -26,53 +32,67 @@ public class Warrior extends Character implements Attacker {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
     @Override
     public String toString() {
         return "Warrior{" +
                 "id='" + getId() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", hp=" + getHp() +
-                ", isAlive=" + getIsAlive() +
                 ", stamina=" + getStamina() +
                 ", strength=" + getStrength() +
                 '}';
     }
-    @java.lang.Override
-    public void attack(Character enemy) {
-        Random random = new Random();
-        int attackType;
-        attackType = random.nextInt(0, 2);
-        System.out.println(attackType);
 
-        //Controlamos que hay suficiente stamina
-        if (this.stamina > 0) {
-            //Si tiene stamina y el golpe es HEAVY ATTACK
-            if (attackType == 1 && this.stamina >= 5) {
-                enemy.setHp(enemy.getHp()-this.strength);
-                this.stamina -= 5;
-                System.out.println("Tremendo putiaso"); //Heavy Attack
-                System.out.println("Stamina actual:" + this.stamina);
-                System.out.println("La salud del enemigo actual es: " + enemy.getHp());
-                //Si la stamina < 5 y se ha otorgado un HEAVY ATTACK
-                //PEGARÁ WEAK ATTACK
-            } else if (attackType == 1 && this.stamina < 5) { //sin suficiente stamina ejecuta un Weak Attack
-                enemy.setHp(enemy.getHp()-this.strength / 2);
-                this.stamina += 1;
-                System.out.println("HEAVY ATTACK (etamina <5) --> WEAK ATTACK"); //Weak Attack
-                System.out.println("Stamina actual:" + this.stamina);
-                System.out.println("La salud del enemigo actual es: " + enemy.getHp());
-                // Cuando tienes stamina y se otorga WEAK ATTAK
-            } else if (attackType == 0 ) { //Cuando se ejecuta el Weak Attack
-                enemy.setHp(enemy.getHp()-this.strength / 2);
-                this.stamina += 1;
-                System.out.println("WEAK ATTACK (con stamina)"); //Weak Attack
-                System.out.println("Stamina actual:" + this.stamina);
-                System.out.println("La salud del enemigo actual es: " + enemy.getHp());
-            }
-        } else {
-            System.out.println("No tiene estamina");
-            stamina += 2;
-            System.out.println("El guerrero este turno no ataca y recupera 2 de stamina");
+    @Override
+    public void attack(Character enemy) {
+
+        //Este random da o 0 o 1
+        int random, dmg = 0;
+        random = (int) Math.round(Math.random());
+
+        //If a wizard does not have the mana to cast a Fireball he will do a Staff hit instead.
+        if (getStamina() < 5) random = 1;
+
+        //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
+        if (getStamina() < 2) random = 2;
+
+        //Heavy attack -> random = 0, weak hit -> random = 1, No stamina -> random = 2
+        switch (random) {
+
+            case 0:
+
+                //The damage of a Heavy attack is equal to his intelligence and every Fireball will decrease their mana by 5 points
+                dmg = getStrength();
+                setStamina(getStamina() - 5);
+                System.out.println(this.getName() + " ATACA CON UN GOLPE FUERTE E INFLINGE " + dmg + " DE DAÑO");
+                break;
+
+            case 1:
+
+                //The damage of a staff hit is equal to 2. Every staff hit will recover his mana by 1.
+                dmg = (getStrength() / 2);
+                setStamina(getStamina() + 1);
+                System.out.println(this.getName() + " ATACA CON UN GOLPE DÉBIL E INFLINGE " + dmg + " DE DAÑO");
+                break;
+
+            default:
+
+                //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
+                setStamina(random);
+                System.out.println(this.getName() + ". NO PUEDE ATACAR NO TIENE STAMINA. STAMINA +2");
+
         }
+
+        //Reduce that character’s health based on the intelligence of the spell
+
+        //Le restamos a la vida que tiene el personaje el valor de la inteligencia del hechizo
+        enemy.setHp(enemy.getHp() - dmg);
+
+        //Si al final no ha tenido stamina, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
+
+        if (getHp() <= 0) setIsAlive(false);
+
     }
+
 }
