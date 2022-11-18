@@ -1,7 +1,7 @@
 public class Wizard extends Character {
 
-    private int mana = (int) (Math.random() * 50 + 10);
-    private int intelligence = (int) (Math.random() * 50 + 1);
+    private int mana;
+    private int intelligence;
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);
@@ -92,5 +92,8 @@ public class Wizard extends Character {
         character.setHp(character.getHp() - dmg);
 
         //Si al final no ha tenido mana, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
+
+        if (getHp() <= 0) setIsAlive(false);
+
     }
 }

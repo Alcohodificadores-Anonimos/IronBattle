@@ -1,6 +1,6 @@
 public class Warrior extends Character {
-    private int stamina = (int) (Math.random() * 50 + 10);
-    private int strength = (int) (Math.random() * 10 + 1);
+    private int stamina;
+    private int strength;
 
 
     public Warrior(String name, int hp, int stamina, int strength) {
@@ -11,10 +11,11 @@ public class Warrior extends Character {
 
     public Warrior(String name, int hp) {
         super(name, hp);
+        //Random entre 10 y 50
         setStamina((int) (Math.random() * 50 + 10));
+        //Random entre 1 y 10
         setStrength((int) (Math.random() * 10 + 1));
     }
-
 
     public int getStamina() {
         return stamina;
@@ -46,26 +47,23 @@ public class Warrior extends Character {
     @Override
     public void attack(Character enemy) {
 
+        //Este random da o 0 o 1
         int random, dmg = 0;
         random = (int) Math.round(Math.random());
 
         //If a wizard does not have the mana to cast a Fireball he will do a Staff hit instead.
-        if (getStamina() < 5) {
-            random = 1;
-        }
+        if (getStamina() < 5) random = 1;
 
         //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
-        if (getStamina() < 2) {
-            random = 2;
-        }
+        if (getStamina() < 2) random = 2;
 
-        //Heavy attack-> random = 0, weak hit -> random = 1, No stamina -> random = 2
+        //Heavy attack -> random = 0, weak hit -> random = 1, No stamina -> random = 2
         switch (random) {
 
             case 0:
 
                 //The damage of a Heavy attack is equal to his intelligence and every Fireball will decrease their mana by 5 points
-                dmg = strength;
+                dmg = getStrength();
                 setStamina(getStamina() - 5);
                 System.out.println(this.getName() + " ATACA CON UN GOLPE FUERTE E INFLINGE " + dmg + " DE DAÑO");
                 break;
@@ -93,6 +91,8 @@ public class Warrior extends Character {
 
         //Si al final no ha tenido stamina, la variable dmg vale 0 por lo cual aunque aparezca una resta sera la hp del personaje - 0
 
+        if (getHp() <= 0) setIsAlive(false);
 
     }
+
 }

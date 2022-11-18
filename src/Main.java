@@ -1,18 +1,19 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    private static ArrayList<Character> players;
+    private static int contadorPlayers;
+    private static boolean alreadyPlayer1;
+    private static Scanner scanner;
 
-        //Variables de menu
-        boolean alreadyPlayer1 = false;
+    public static void main(String[] args) {
 
-        //Variables creacion de personajes
-        int contadorPlayers = 0;
-        ArrayList<Character> players = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        alreadyPlayer1 = false;
+        contadorPlayers = 0;
+        players = new ArrayList<>();
+        scanner = new Scanner(System.in);
 
         System.out.println("BIENVENIDO A IRONBATTLE");
 
@@ -32,50 +33,31 @@ public class Main {
 
                             if (alreadyPlayer1) {
 
-                                /*
-                                // llamar método clear + createWarrior (mismo codigo en if)
-                                //Limpiamos el Array por si hay personajes importados mediante el CSV
-                                 */
+                                createCharacter(true);
 
-                                //todo: Mirar esto
-                                players.clear();
-                                alreadyPlayer1 = false;
-                                contadorPlayers = 0;
+                            } else {
 
                                 players.add(Utilities.createWarrior());
                                 contadorPlayers++;
-                                break;
 
                             }
 
-                            if (!alreadyPlayer1) {
-
-                                players.add(Utilities.createWarrior());
-                                contadorPlayers++;
-                                break;
-
-                            }
+                            break;
 
                         case "2":
 
                             if (alreadyPlayer1) {
 
-                                // llamar método clear + createWizard (mismo codigo en if)
-                                //Limpiamos el Array por si hay personajes importados mediante el CSV
-                                players.clear();
-                                alreadyPlayer1 = false;
-                                contadorPlayers = 0;
-                                players.add(Utilities.createWizard());
-                                contadorPlayers++;
-                                break;
+                                createCharacter(false);
 
                             } else {
 
-                                // llamar método createWizard (mismo codigo en if)
                                 players.add(Utilities.createWizard());
                                 contadorPlayers++;
 
                             }
+
+                            break;
 
                         default:
 
@@ -93,40 +75,38 @@ public class Main {
                         //Método que llama para empezar el combate
                         Utilities.combat(players);
                         contadorPlayers -= 2;
-                        break;
 
                     } else {
 
                         System.out.println("¡CREA LOS PERSONAJES ANTES!\n");
-                        break;
 
                     }
 
+                    break;
+
                 case "3":
 
-                    //METODO PARA VER EL LOG DEL COMBATE
-                    System.out.println("LOG DEL COMBATE");
-                    //EL COMBATE NO GUARDA LOG, MÉTODO A MODIFICAR
+                    System.out.println("CANTIDAD DE PERSONAJES: " + players.size());
+                    players.forEach((player) -> System.out.println(player));
+
                     break;
 
                 case "4":
 
-                    System.out.println("PERSONAJES IMPORTADOS");
-                    players = Utilities.importCSV(players);
-                    contadorPlayers = 2;
-                    alreadyPlayer1 = true;
-                    System.out.println(players);
+                    importarPersonajes();
+
                     break;
 
                 case "5":
 
-                    //METODO COMBATE AUTOMATICO
                     Utilities.automaticCombat();
+
                     break;
 
                 case "6":
 
                     System.out.println("SALIENDO DEL JUEGO...");
+
                     return;
 
                 default:
@@ -139,13 +119,33 @@ public class Main {
 
     }
 
+    private static void importarPersonajes() {
+
+        players = Utilities.importCSV(players);
+        contadorPlayers = players.size() + 2;
+        alreadyPlayer1 = true;
+        System.out.println("PERSONAJES IMPORTADOS");
+        System.out.println(players);
+
+    }
+
+    private static void createCharacter(boolean isWarrior) {
+
+        players.clear();
+        alreadyPlayer1 = false;
+        contadorPlayers = 0;
+        contadorPlayers++;
+        players.add(isWarrior ? Utilities.createWarrior() : Utilities.createWizard());
+
+    }
+
     public static void printMenu() {
 
         System.out.println("""
                 =========MENU===========
                 SELECIONA 1 PARA CREAR LOS PERSONAJES
                 SELECIONA 2 PARA ENTRAR A LA BATALLA
-                SELECCIONA 3 PARA VER EL LOG DEL COMBATE
+                SELECCIONA 3 PARA VER TODOS LOS PERSONAJES
                 SELECCIONA 4 PARA IMPORTAR PERSONAJES DE UN CSV
                 SELECCIONA 5 PARA COMBATE AUTOMÁTICO
                 SELECCIONA 6 PARA SALIR DEL JUEGO
@@ -155,8 +155,10 @@ public class Main {
 
     public static void printSubMenu() {
 
-        System.out.println("SELECCIONA 1 PARA CREAR UN WARRIOR\n" +
-                "SELECCIONA 2 PARA CREAR UN WIZARD\n");
+        System.out.println("""
+                SELECCIONA 1 PARA CREAR UN WARRIOR
+                SELECCIONA 2 PARA CREAR UN WIZARD
+                """);
 
     }
 

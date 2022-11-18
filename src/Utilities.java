@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class Utilities {
 
-
-
     public static Character createWarrior() {
 
         Scanner scanner = new Scanner(System.in);
@@ -143,8 +141,9 @@ public class Utilities {
             }
         }
         wizard = new Wizard(nameWizard, hpWizard, manaWizard, intelligenceWizard);
-        System.out.println("WIZARD CREADO");
-        System.out.println(wizard);
+
+        System.out.println("WIZARD CREADO\n" +
+                wizard + "\n");
 
         return wizard;
     }
@@ -284,6 +283,8 @@ public class Utilities {
 
 }
 
+//leerLog
+//leera el fichero log y lo mostrara por pantalla
 
 
 
