@@ -198,7 +198,6 @@ public class Utilities {
                     reader.nextLine();
                 }
                 
-                // if(contador==1) contador++
                 combatsResults.write("COMBATE " + Math.round((contador - 1) / 2) + "\n");
 
                 System.out.println("DOBLE K.O., HA SIDO EMPATE.");
