@@ -59,6 +59,7 @@ public class Warrior extends Character {
 
         //Heavy attack -> random = 0, weak hit -> random = 1, No stamina -> random = 2
         switch (random) {
+
             case 0 -> {
                 //The damage from a Heavy attack is equal to his intelligence and every Fireball will decrease their mana by 5 points
                 dmg = getStrength();

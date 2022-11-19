@@ -201,7 +201,7 @@ public class Utilities {
             character1.setIsAlive(true); character2.setIsAlive(true);
         }
 
-        while (character1.getIsAlive() && character2.getIsAlive()) {
+        while (character1.getHp()>0 && character2.getHp()>0) {
 
             System.out.println("   TURNO " + turnos);
 
@@ -217,21 +217,21 @@ public class Utilities {
                     "----------------------------------------\n");
 
             //Si ambos estan muertos
-            if (!character1.getIsAlive() && !character2.getIsAlive()) {
+            if (character1.getHp() <=0 && character2.getHp()<=0) {
 
                 imprimirFinCombate("DOBLE K.O., HA SIDO EMPATE. \n");
 
             }
 
             //Si muere el jugador 2
-            else if (!character2.getIsAlive()) {
+            else if (character2.getHp()<=0) {
 
                 imprimirFinCombate(" GANADOR: Player 1: " + character1 + "\n");
 
             }
 
             //Si muere el jugador 1
-            else if (!character1.getIsAlive()) {
+            else if (character1.getHp()<=0) {
 
                 imprimirFinCombate(" GANADOR: Player 2: " + character2 + "\n");
 

@@ -3,3 +3,245 @@ COMBATE 1
  GANADOR: Player 1: Warrior{id='0', name='Player 1', hp=93, stamina=22, strength=6}
 COMBATE 2
  GANADOR: Player 1: Wizard{id='2', name='Player 1', hp=32, mana=0, intelligence=4}
+COMBATE 3
+ GANADOR: Player 1: Wizard{id='3', name='Player 1', hp=-18, mana=16, intelligence=14}
+COMBATE 4
+ GANADOR: Player 1: Warrior{id='5', name='Player 1', hp=189, stamina=10, strength=5}
+COMBATE 5
+ GANADOR: Player 1: Wizard{id='7', name='Player 1', hp=106, mana=7, intelligence=50}
+COMBATE 6
+ GANADOR: Player 1: Wizard{id='9', name='Player 1', hp=-17, mana=8, intelligence=21}
+COMBATE 7
+ GANADOR: Player 2: Wizard{id='3', name='Player 2', hp=24, mana=8, intelligence=34}
+COMBATE 8
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=67, mana=7, intelligence=22}
+COMBATE 9
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=67, stamina=5, strength=5}
+COMBATE 10
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=86, mana=8, intelligence=22}
+COMBATE 11
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=30, stamina=0, strength=5}
+COMBATE 12
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=40, mana=0, intelligence=22}
+COMBATE 13
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=29, stamina=5, strength=5}
+COMBATE 14
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=55, mana=5, intelligence=22}
+COMBATE 15
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=9, stamina=5, strength=5}
+COMBATE 16
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=81, stamina=3, strength=5}
+COMBATE 17
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=22, mana=6, intelligence=22}
+COMBATE 18
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=2, mana=2, intelligence=22}
+COMBATE 19
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=22, mana=1, intelligence=22}
+COMBATE 20
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=-13, stamina=3, strength=5}
+COMBATE 21
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=44, mana=2, intelligence=22}
+COMBATE 22
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=44, mana=2, intelligence=22}
+COMBATE 23
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=28, mana=2, intelligence=22}
+COMBATE 24
+ GANADOR: Player 2: Wizard{id='1', name='WIZARD', hp=40, mana=7, intelligence=22}
+COMBATE 25
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=63, stamina=3, strength=5}
+COMBATE 26
+ GANADOR: Player 1: Warrior{id='0', name='WARRIOR', hp=23, stamina=1, strength=5}
+COMBATE 27
+ GANADOR: Player 1: Warrior{id='0', name='1', hp=10, stamina=11, strength=10}
+COMBATE 28
+ GANADOR: Player 1: Warrior{id='2', name='Player 1', hp=36, stamina=2, strength=7}
+COMBATE 29
+ GANADOR: Player 1: Wizard{id='4', name='Player 1', hp=79, mana=1, intelligence=15}
+COMBATE 30
+ GANADOR: Player 2: Warrior{id='7', name='Player 2', hp=153, stamina=15, strength=9}
+COMBATE 31
+ GANADOR: Player 2: Wizard{id='9', name='Player 2', hp=75, mana=3, intelligence=33}
+COMBATE 32
+ GANADOR: Player 1: Warrior{id='10', name='Player 1', hp=11, stamina=3, strength=5}
+COMBATE 33
+ GANADOR: Player 2: Wizard{id='13', name='Player 2', hp=33, mana=22, intelligence=35}
+COMBATE 34
+ GANADOR: Player 1: Wizard{id='14', name='Player 1', hp=37, mana=15, intelligence=41}
+COMBATE 35
+ GANADOR: Player 1: Warrior{id='16', name='Player 1', hp=210, stamina=10, strength=9}
+COMBATE 36
+ GANADOR: Player 1: Warrior{id='18', name='Player 1', hp=134, stamina=7, strength=6}
+COMBATE 37
+ GANADOR: Player 2: Wizard{id='21', name='Player 2', hp=15, mana=19, intelligence=17}
+COMBATE 38
+ GANADOR: Player 2: Wizard{id='23', name='Player 2', hp=41, mana=7, intelligence=46}
+COMBATE 39
+ GANADOR: Player 2: Warrior{id='25', name='Player 2', hp=202, stamina=5, strength=5}
+COMBATE 40
+ GANADOR: Player 2: Wizard{id='27', name='Player 2', hp=86, mana=10, intelligence=32}
+COMBATE 41
+ GANADOR: Player 1: Warrior{id='28', name='Player 1', hp=42, stamina=7, strength=6}
+COMBATE 42
+ GANADOR: Player 1: Warrior{id='30', name='Player 1', hp=8, stamina=3, strength=3}
+COMBATE 43
+ GANADOR: Player 2: Warrior{id='33', name='Player 2', hp=9, stamina=2, strength=6}
+COMBATE 44
+ GANADOR: Player 2: Wizard{id='35', name='Player 2', hp=57, mana=5, intelligence=15}
+COMBATE 45
+ GANADOR: Player 2: Warrior{id='37', name='Player 2', hp=2, stamina=2, strength=6}
+COMBATE 46
+ GANADOR: Player 2: Warrior{id='39', name='Player 2', hp=234, stamina=1, strength=5}
+COMBATE 47
+ GANADOR: Player 2: Warrior{id='41', name='Player 2', hp=90, stamina=4, strength=3}
+COMBATE 48
+ GANADOR: Player 1: Wizard{id='42', name='Player 1', hp=64, mana=9, intelligence=37}
+COMBATE 49
+ GANADOR: Player 1: Wizard{id='44', name='Player 1', hp=103, mana=0, intelligence=37}
+COMBATE 50
+ GANADOR: Player 2: Warrior{id='47', name='Player 2', hp=18, stamina=3, strength=4}
+COMBATE 51
+ GANADOR: Player 2: Wizard{id='49', name='Player 2', hp=110, mana=2, intelligence=37}
+COMBATE 52
+ GANADOR: Player 1: Wizard{id='50', name='Player 1', hp=38, mana=32, intelligence=32}
+COMBATE 53
+ GANADOR: Player 2: Wizard{id='53', name='Player 2', hp=91, mana=11, intelligence=47}
+COMBATE 54
+ GANADOR: Player 1: Wizard{id='54', name='Player 1', hp=12, mana=29, intelligence=43}
+COMBATE 55
+ GANADOR: Player 1: Wizard{id='56', name='Player 1', hp=26, mana=1, intelligence=14}
+COMBATE 56
+ GANADOR: Player 1: Wizard{id='58', name='Player 1', hp=48, mana=31, intelligence=35}
+COMBATE 57
+ GANADOR: Player 1: Warrior{id='60', name='Player 1', hp=180, stamina=4, strength=7}
+COMBATE 58
+ GANADOR: Player 2: Wizard{id='63', name='Player 2', hp=23, mana=39, intelligence=18}
+COMBATE 59
+ GANADOR: Player 1: Wizard{id='64', name='Player 1', hp=126, mana=1, intelligence=15}
+COMBATE 60
+ GANADOR: Player 1: Warrior{id='66', name='Player 1', hp=105, stamina=34, strength=8}
+COMBATE 61
+ GANADOR: Player 2: Wizard{id='69', name='Player 2', hp=91, mana=0, intelligence=33}
+COMBATE 62
+ GANADOR: Player 2: Wizard{id='71', name='Player 2', hp=126, mana=16, intelligence=24}
+COMBATE 63
+ GANADOR: Player 2: Wizard{id='73', name='Player 2', hp=33, mana=22, intelligence=27}
+COMBATE 64
+ GANADOR: Player 2: Wizard{id='75', name='Player 2', hp=61, mana=7, intelligence=25}
+COMBATE 65
+ GANADOR: Player 1: Wizard{id='76', name='Player 1', hp=81, mana=22, intelligence=11}
+COMBATE 66
+ GANADOR: Player 1: Wizard{id='78', name='Player 1', hp=121, mana=19, intelligence=31}
+COMBATE 67
+ GANADOR: Player 1: Wizard{id='80', name='Player 1', hp=86, mana=5, intelligence=28}
+COMBATE 68
+ GANADOR: Player 2: Wizard{id='83', name='Player 2', hp=38, mana=5, intelligence=11}
+COMBATE 69
+ GANADOR: Player 1: Wizard{id='84', name='Player 1', hp=13, mana=28, intelligence=30}
+COMBATE 70
+ GANADOR: Player 2: Wizard{id='87', name='Player 2', hp=124, mana=7, intelligence=31}
+COMBATE 71
+ GANADOR: Player 2: Warrior{id='89', name='Player 2', hp=36, stamina=2, strength=5}
+COMBATE 72
+ GANADOR: Player 2: Wizard{id='91', name='Player 2', hp=54, mana=31, intelligence=38}
+COMBATE 73
+ GANADOR: Player 2: Wizard{id='93', name='Player 2', hp=63, mana=25, intelligence=19}
+COMBATE 74
+DOBLE K.O., HA SIDO EMPATE. 
+COMBATE 75
+ GANADOR: Player 2: Wizard{id='1', name='Player 2', hp=5, mana=1, intelligence=25}
+COMBATE 75
+ GANADOR: Player 2: Wizard{id='1', name='Player 2', hp=1, mana=2, intelligence=25}
+COMBATE 77
+ GANADOR: Player 2: Wizard{id='3', name='Player 2', hp=32, mana=8, intelligence=47}
+COMBATE 77
+ GANADOR: Player 2: Wizard{id='3', name='Player 2', hp=30, mana=3, intelligence=47}
+COMBATE 79
+ GANADOR: Player 2: Wizard{id='1', name='Player 2', hp=43, mana=1, intelligence=35}
+COMBATE 80
+ GANADOR: Player 2: Warrior{id='3', name='Player 2', hp=18, stamina=6, strength=10}
+COMBATE 81
+ GANADOR: Player 2: Warrior{id='5', name='Player 2', hp=110, stamina=4, strength=2}
+COMBATE 82
+ GANADOR: Player 1: Warrior{id='6', name='Player 1', hp=7, stamina=0, strength=3}
+COMBATE 83
+ GANADOR: Player 2: Warrior{id='9', name='Player 2', hp=109, stamina=3, strength=8}
+COMBATE 84
+ GANADOR: Player 1: Wizard{id='10', name='Player 1', hp=57, mana=17, intelligence=17}
+COMBATE 85
+ GANADOR: Player 1: Wizard{id='12', name='Player 1', hp=5, mana=0, intelligence=20}
+COMBATE 86
+ GANADOR: Player 1: Warrior{id='14', name='Player 1', hp=128, stamina=25, strength=7}
+COMBATE 87
+ GANADOR: Player 1: Warrior{id='16', name='Player 1', hp=142, stamina=18, strength=9}
+COMBATE 88
+ GANADOR: Player 1: Wizard{id='18', name='Player 1', hp=34, mana=41, intelligence=20}
+COMBATE 89
+ GANADOR: Player 2: Wizard{id='21', name='Player 2', hp=69, mana=44, intelligence=32}
+COMBATE 90
+ GANADOR: Player 2: Warrior{id='23', name='Player 2', hp=237, stamina=18, strength=9}
+COMBATE 91
+ GANADOR: Player 1: Wizard{id='24', name='Player 1', hp=51, mana=1, intelligence=10}
+COMBATE 92
+ GANADOR: Player 2: Wizard{id='27', name='Player 2', hp=32, mana=9, intelligence=37}
+COMBATE 93
+ GANADOR: Player 1: Warrior{id='28', name='Player 1', hp=13, stamina=4, strength=9}
+COMBATE 94
+ GANADOR: Player 1: Wizard{id='30', name='Player 1', hp=143, mana=35, intelligence=44}
+COMBATE 95
+ GANADOR: Player 2: Wizard{id='33', name='Player 2', hp=109, mana=0, intelligence=50}
+COMBATE 96
+ GANADOR: Player 1: Wizard{id='34', name='Player 1', hp=13, mana=10, intelligence=39}
+COMBATE 97
+ GANADOR: Player 1: Warrior{id='36', name='Player 1', hp=22, stamina=38, strength=8}
+COMBATE 98
+ GANADOR: Player 1: Warrior{id='38', name='Player 1', hp=29, stamina=4, strength=7}
+COMBATE 99
+ GANADOR: Player 2: Wizard{id='41', name='Player 2', hp=43, mana=33, intelligence=22}
+COMBATE 100
+ GANADOR: Player 2: Wizard{id='43', name='Player 2', hp=27, mana=1, intelligence=4}
+COMBATE 101
+ GANADOR: Player 2: Warrior{id='45', name='Player 2', hp=174, stamina=7, strength=7}
+COMBATE 102
+ GANADOR: Player 1: Warrior{id='46', name='Player 1', hp=130, stamina=4, strength=9}
+COMBATE 103
+ GANADOR: Player 2: Wizard{id='49', name='Player 2', hp=67, mana=41, intelligence=41}
+COMBATE 104
+ GANADOR: Player 2: Wizard{id='51', name='Player 2', hp=131, mana=3, intelligence=39}
+COMBATE 105
+ GANADOR: Player 2: Warrior{id='53', name='Player 2', hp=61, stamina=6, strength=3}
+COMBATE 106
+ GANADOR: Player 1: Warrior{id='54', name='Player 1', hp=37, stamina=1, strength=9}
+COMBATE 107
+ GANADOR: Player 2: Wizard{id='57', name='Player 2', hp=42, mana=26, intelligence=31}
+COMBATE 108
+ GANADOR: Player 1: Wizard{id='58', name='Player 1', hp=50, mana=12, intelligence=37}
+COMBATE 109
+ GANADOR: Player 1: Warrior{id='60', name='Player 1', hp=116, stamina=7, strength=4}
+COMBATE 110
+ GANADOR: Player 2: Warrior{id='63', name='Player 2', hp=63, stamina=5, strength=6}
+COMBATE 111
+ GANADOR: Player 1: Wizard{id='64', name='Player 1', hp=55, mana=36, intelligence=37}
+COMBATE 112
+ GANADOR: Player 1: Warrior{id='66', name='Player 1', hp=92, stamina=4, strength=4}
+COMBATE 113
+ GANADOR: Player 1: Warrior{id='68', name='Player 1', hp=197, stamina=12, strength=9}
+COMBATE 114
+ GANADOR: Player 2: Warrior{id='71', name='Player 2', hp=99, stamina=6, strength=4}
+COMBATE 115
+ GANADOR: Player 2: Warrior{id='73', name='Player 2', hp=161, stamina=6, strength=8}
+COMBATE 116
+ GANADOR: Player 2: Warrior{id='75', name='Player 2', hp=149, stamina=6, strength=4}
+COMBATE 117
+ GANADOR: Player 2: Wizard{id='77', name='Player 2', hp=65, mana=8, intelligence=36}
+COMBATE 118
+ GANADOR: Player 1: Wizard{id='78', name='Player 1', hp=78, mana=11, intelligence=33}
+COMBATE 119
+ GANADOR: Player 1: Warrior{id='80', name='Player 1', hp=61, stamina=2, strength=7}
+COMBATE 120
+ GANADOR: Player 2: Warrior{id='83', name='Player 2', hp=194, stamina=0, strength=10}
+COMBATE 121
+ GANADOR: Player 1: Wizard{id='84', name='Player 1', hp=67, mana=40, intelligence=24}
+COMBATE 122
+ GANADOR: Player 1: Wizard{id='86', name='Player 1', hp=82, mana=32, intelligence=37}
+COMBATE 123
+ GANADOR: Player 1: Wizard{id='88', name='Player 1', hp=55, mana=38, intelligence=36}
