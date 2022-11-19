@@ -59,29 +59,23 @@ public class Warrior extends Character {
 
         //Heavy attack -> random = 0, weak hit -> random = 1, No stamina -> random = 2
         switch (random) {
-
-            case 0:
-
-                //The damage of a Heavy attack is equal to his intelligence and every Fireball will decrease their mana by 5 points
+            case 0 -> {
+                //The damage from a Heavy attack is equal to his intelligence and every Fireball will decrease their mana by 5 points
                 dmg = getStrength();
                 setStamina(getStamina() - 5);
                 System.out.println(this.getName() + " ATACA CON UN GOLPE FUERTE E INFLINGE " + dmg + " DE DAÑO");
-                break;
-
-            case 1:
-
-                //The damage of a staff hit is equal to 2. Every staff hit will recover his mana by 1.
+            }
+            case 1 -> {
+                //The damage from a staff hit is equal to 2. Every staff hit will recover his mana by 1.
                 dmg = (getStrength() / 2);
                 setStamina(getStamina() + 1);
                 System.out.println(this.getName() + " ATACA CON UN GOLPE DÉBIL E INFLINGE " + dmg + " DE DAÑO");
-                break;
-
-            default:
-
+            }
+            default -> {
                 //If a wizard does not have the mana to cast a Staff hit he will not inflict any damage and recover his mana by 2
                 setStamina(random);
                 System.out.println(this.getName() + ". NO PUEDE ATACAR NO TIENE STAMINA. STAMINA +2");
-
+            }
         }
 
         //Reduce that character’s health based on the intelligence of the spell

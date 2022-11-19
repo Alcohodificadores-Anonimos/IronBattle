@@ -7,14 +7,12 @@ public class Main {
     private static ArrayList<Character> players;
     private static int contadorPlayers;
     private static boolean alreadyPlayer1;
-    private static Scanner scanner;
 
     public static void main(String[] args) throws IOException {
-
+        Scanner scanner = new Scanner(System.in);
         alreadyPlayer1 = false;
         contadorPlayers = 0;
         players = new ArrayList<>();
-        scanner = new Scanner(System.in);
 
         System.out.println("BIENVENIDO A IRONBATTLE");
 
@@ -75,7 +73,7 @@ public class Main {
 
                         //Método que llama para empezar el combate
                         Utilities.combat(players);
-                        contadorPlayers -= 2;
+                        //contadorPlayers -= 2;
 
                     } else {
 
