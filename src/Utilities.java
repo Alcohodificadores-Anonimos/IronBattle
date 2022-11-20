@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Utilities {
@@ -166,7 +165,6 @@ public class Utilities {
 
         contador = 1;
         int turnos = 1;
-        String msg;
 
         Character character1 = players.get(0);
         Character character2 = players.get(1);
@@ -187,9 +185,23 @@ public class Utilities {
 
         System.out.println("-------------EMPEZANDO EL COMBATE----------------\n");
 
-        //El combate se ejecuta por cada dos players, si el array es impar, no ejecuta combate para el último player
-        //Mientras que uno de los 2 characters esté vivo, seguiremos los turnos
-        while (character1.getIsAlive() && character2.getIsAlive()) {
+        // Reseteo de vida si hay alguno RIP, mientras que uno de los 2 characters esté vivo, seguiremos los turnos
+        if(!character1.getIsAlive() || !character2.getIsAlive()) {
+            if (character1 instanceof Warrior) {
+                character1.setHp((int) (Math.random() * 200 + 100));
+            } else {
+                character1.setHp((int) (Math.random() * 100 + 50));
+            }
+            if(character2 instanceof Warrior) {
+                character1.setHp((int) (Math.random() * 200 + 100));
+            }
+            else {
+                character2.setHp((int) (Math.random() * 100 + 50));
+            }
+            character1.setIsAlive(true); character2.setIsAlive(true);
+        }
+
+        while (character1.getHp()>0 && character2.getHp()>0) {
 
             System.out.println("   TURNO " + turnos);
 
@@ -205,21 +217,21 @@ public class Utilities {
                     "----------------------------------------\n");
 
             //Si ambos estan muertos
-            if (!character1.getIsAlive() && !character2.getIsAlive()) {
+            if (character1.getHp() <=0 && character2.getHp()<=0) {
 
                 imprimirFinCombate("DOBLE K.O., HA SIDO EMPATE. \n");
 
             }
 
             //Si muere el jugador 2
-            if (!character2.getIsAlive()) {
+            else if (character2.getHp()<=0) {
 
                 imprimirFinCombate(" GANADOR: Player 1: " + character1 + "\n");
 
             }
 
             //Si muere el jugador 1
-            if (!character1.getIsAlive()) {
+            else if (character1.getHp()<=0) {
 
                 imprimirFinCombate(" GANADOR: Player 2: " + character2 + "\n");
 
@@ -257,20 +269,14 @@ public class Utilities {
 
             //Random entre 1 y 2
             switch ((int) (Math.random() * 2) + 1) {
-
-                case 1:
-
-                    Warrior warrior = new Warrior("Player " + (i + 1), new Random().nextInt(200 - 100) + 100);
+                case 1 -> {
+                    Warrior warrior = new Warrior("Player " + (i + 1), (int) (Math.random() * 200 + 100));
                     players.add(warrior);
-
-                    break;
-
-                case 2:
-
-                    Wizard wizard = new Wizard("Player " + (i + 1), new Random().nextInt(100 - 50) + 50);
+                }
+                case 2 -> {
+                    Wizard wizard = new Wizard("Player " + (i + 1), (int) (Math.random() * 100 + 50));
                     players.add(wizard);
-
-                    break;
+                }
             }
 
         }
